@@ -10,47 +10,55 @@ import SpriteKit
 
 class CockpitViewController: UIViewController {
 
+    lazy var skView: SKView = {
+        let view = SKView()
+        return view
+    }()
+
+    lazy var subView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .blue
+        return view
+    }()
+
+    override func loadView() {
+        self.view = skView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        buildLayout()
     }
 
-    override func viewDidLayoutSubviews() {
-        let skView = SKView(frame: view.frame)
-        skView.backgroundColor = .green
-        self.view.addSubview(skView)
-        if let view = skView as SKView? {
-            let scene = GameScene(size: view.bounds.size)
-//            let scene = GameScene(size: CGSize(width: 2388, height: 1668))
-            scene.scaleMode = .aspectFill
-            scene.backgroundColor = .systemPurple
+}
 
-            view.presentScene(scene)
+extension CockpitViewController: ViewCodeProtocol {
 
-            view.ignoresSiblingOrder = false
-            view.showsPhysics = false
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
+    func setUI() {
+        let scene = GameScene(size: skView.bounds.size)
+        //let scene = GameScene(size: CGSize(width: 2388, height: 1668))
+        scene.scaleMode = .aspectFill
+        scene.backgroundColor = .systemPurple
 
-        let subView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        subView.backgroundColor = .blue
-        self.view.addSubview(subView)
+        skView.presentScene(scene)
 
-
-
-
+        skView.ignoresSiblingOrder = false
+        skView.showsPhysics = false
+        skView.showsFPS = true
+        skView.showsNodeCount = true
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setHierarchy() {
+        self.skView.addSubview(subView)
     }
-    */
 
+    func setConstraints() {
+        NSLayoutConstraint.activate([
+            subView.heightAnchor.constraint(equalToConstant: 100),
+            subView.widthAnchor.constraint(equalToConstant: 100),
+            subView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            subView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
 }
