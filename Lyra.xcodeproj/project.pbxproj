@@ -12,6 +12,7 @@
 		4FB4411F29E44B6E002F6CC2 /* CockpitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */; };
 		4FB4412929E44DF4002F6CC2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4412829E44DF4002F6CC2 /* GameScene.swift */; };
 		4FB4412D29E45271002F6CC2 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */; };
+		85D8693129E597FB0073DCF4 /* StateDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85D8692F29E597FB0073DCF4 /* StateDatabase.xcdatamodeld */; };
 		85F3A31A29DAFCA90097579B /* LyraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3A31929DAFCA90097579B /* LyraApp.swift */; };
 		85F3A31C29DAFCA90097579B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3A31B29DAFCA90097579B /* ContentView.swift */; };
 		85F3A31E29DAFCAB0097579B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85F3A31D29DAFCAB0097579B /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockpitViewController.swift; sourceTree = "<group>"; };
 		4FB4412829E44DF4002F6CC2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		85D8693029E597FB0073DCF4 /* StateDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StateDatabase.xcdatamodel; sourceTree = "<group>"; };
 		85F3A31629DAFCA90097579B /* Lyra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lyra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85F3A31929DAFCA90097579B /* LyraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyraApp.swift; sourceTree = "<group>"; };
 		85F3A31B29DAFCA90097579B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -203,6 +205,24 @@
 			path = Storages;
 			sourceTree = "<group>";
 		};
+		85D8692D29E597D00073DCF4 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				85F3A31B29DAFCA90097579B /* ContentView.swift */,
+				85F3A31929DAFCA90097579B /* LyraApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		85D8692E29E597DC0073DCF4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				85F3A31D29DAFCAB0097579B /* Assets.xcassets */,
+				85D8692F29E597FB0073DCF4 /* StateDatabase.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		85F3A30D29DAFCA90097579B = {
 			isa = PBXGroup;
 			children = (
@@ -226,12 +246,11 @@
 		85F3A31829DAFCA90097579B /* Lyra */ = {
 			isa = PBXGroup;
 			children = (
+				85D8692E29E597DC0073DCF4 /* Resources */,
+				85D8692D29E597D00073DCF4 /* Application */,
 				85D8692829E588BF0073DCF4 /* Data */,
 				85D8692729E588B20073DCF4 /* Domain */,
 				4FB4411529E44874002F6CC2 /* Presentation */,
-				85F3A31929DAFCA90097579B /* LyraApp.swift */,
-				85F3A31B29DAFCA90097579B /* ContentView.swift */,
-				85F3A31D29DAFCAB0097579B /* Assets.xcassets */,
 				85F3A31F29DAFCAB0097579B /* Preview Content */,
 			);
 			path = Lyra;
@@ -392,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85D8693129E597FB0073DCF4 /* StateDatabase.xcdatamodeld in Sources */,
 				4FB4412929E44DF4002F6CC2 /* GameScene.swift in Sources */,
 				85F3A31C29DAFCA90097579B /* ContentView.swift in Sources */,
 				4FB4411A29E448EE002F6CC2 /* CockpitView.swift in Sources */,
@@ -723,6 +743,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		85D8692F29E597FB0073DCF4 /* StateDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				85D8693029E597FB0073DCF4 /* StateDatabase.xcdatamodel */,
+			);
+			currentVersion = 85D8693029E597FB0073DCF4 /* StateDatabase.xcdatamodel */;
+			path = StateDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 85F3A30E29DAFCA90097579B /* Project object */;
 }
