@@ -157,6 +157,52 @@
 			path = Start;
 			sourceTree = "<group>";
 		};
+		85D8692729E588B20073DCF4 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				85D8692A29E588CA0073DCF4 /* Entities */,
+				85D8692929E588C40073DCF4 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		85D8692829E588BF0073DCF4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				85D8692C29E588EA0073DCF4 /* Storages */,
+				85D8692B29E588D40073DCF4 /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		85D8692929E588C40073DCF4 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		85D8692A29E588CA0073DCF4 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		85D8692B29E588D40073DCF4 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		85D8692C29E588EA0073DCF4 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
 		85F3A30D29DAFCA90097579B = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +226,8 @@
 		85F3A31829DAFCA90097579B /* Lyra */ = {
 			isa = PBXGroup;
 			children = (
+				85D8692829E588BF0073DCF4 /* Data */,
+				85D8692729E588B20073DCF4 /* Domain */,
 				4FB4411529E44874002F6CC2 /* Presentation */,
 				85F3A31929DAFCA90097579B /* LyraApp.swift */,
 				85F3A31B29DAFCA90097579B /* ContentView.swift */,
