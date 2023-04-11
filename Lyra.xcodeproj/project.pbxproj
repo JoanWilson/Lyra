@@ -84,8 +84,8 @@
 		4FB4411529E44874002F6CC2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4FDC130129E58611002FA49F /* Scenes */,
 				4FB4412B29E4524F002F6CC2 /* Helpers */,
-				4FB4411629E44880002F6CC2 /* Cockpit */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -139,6 +139,22 @@
 				4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4FDC130129E58611002FA49F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				4FDC130229E58642002FA49F /* Start */,
+				4FB4411629E44880002F6CC2 /* Cockpit */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4FDC130229E58642002FA49F /* Start */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Start;
 			sourceTree = "<group>";
 		};
 		85F3A30D29DAFCA90097579B = {
