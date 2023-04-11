@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FB4411A29E448EE002F6CC2 /* CockpitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4411929E448EE002F6CC2 /* CockpitView.swift */; };
+		4FB4411C29E44A04002F6CC2 /* CockpitRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4411B29E44A04002F6CC2 /* CockpitRepresentable.swift */; };
+		4FB4411F29E44B6E002F6CC2 /* CockpitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */; };
+		4FB4412929E44DF4002F6CC2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4412829E44DF4002F6CC2 /* GameScene.swift */; };
+		4FB4412D29E45271002F6CC2 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */; };
 		85F3A31A29DAFCA90097579B /* LyraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3A31929DAFCA90097579B /* LyraApp.swift */; };
 		85F3A31C29DAFCA90097579B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3A31B29DAFCA90097579B /* ContentView.swift */; };
 		85F3A31E29DAFCAB0097579B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85F3A31D29DAFCAB0097579B /* Assets.xcassets */; };
@@ -34,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4FB4411929E448EE002F6CC2 /* CockpitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockpitView.swift; sourceTree = "<group>"; };
+		4FB4411B29E44A04002F6CC2 /* CockpitRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockpitRepresentable.swift; sourceTree = "<group>"; };
+		4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockpitViewController.swift; sourceTree = "<group>"; };
+		4FB4412829E44DF4002F6CC2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		85F3A31629DAFCA90097579B /* Lyra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lyra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85F3A31929DAFCA90097579B /* LyraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyraApp.swift; sourceTree = "<group>"; };
 		85F3A31B29DAFCA90097579B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +81,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4FB4411529E44874002F6CC2 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4FB4412B29E4524F002F6CC2 /* Helpers */,
+				4FB4411629E44880002F6CC2 /* Cockpit */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		4FB4411629E44880002F6CC2 /* Cockpit */ = {
+			isa = PBXGroup;
+			children = (
+				4FB4411D29E44B42002F6CC2 /* ViewController */,
+				4FB4411829E448B4002F6CC2 /* ViewModel */,
+				4FB4411729E448AD002F6CC2 /* View */,
+			);
+			path = Cockpit;
+			sourceTree = "<group>";
+		};
+		4FB4411729E448AD002F6CC2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4FB4412A29E44E76002F6CC2 /* Nodes */,
+				4FB4411929E448EE002F6CC2 /* CockpitView.swift */,
+				4FB4411B29E44A04002F6CC2 /* CockpitRepresentable.swift */,
+				4FB4412829E44DF4002F6CC2 /* GameScene.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4FB4411829E448B4002F6CC2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4FB4411D29E44B42002F6CC2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4FB4412A29E44E76002F6CC2 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		4FB4412B29E4524F002F6CC2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		85F3A30D29DAFCA90097579B = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +164,7 @@
 		85F3A31829DAFCA90097579B /* Lyra */ = {
 			isa = PBXGroup;
 			children = (
+				4FB4411529E44874002F6CC2 /* Presentation */,
 				85F3A31929DAFCA90097579B /* LyraApp.swift */,
 				85F3A31B29DAFCA90097579B /* ContentView.swift */,
 				85F3A31D29DAFCAB0097579B /* Assets.xcassets */,
@@ -257,7 +328,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FB4412929E44DF4002F6CC2 /* GameScene.swift in Sources */,
 				85F3A31C29DAFCA90097579B /* ContentView.swift in Sources */,
+				4FB4411A29E448EE002F6CC2 /* CockpitView.swift in Sources */,
+				4FB4411C29E44A04002F6CC2 /* CockpitRepresentable.swift in Sources */,
+				4FB4412D29E45271002F6CC2 /* ViewCodeProtocol.swift in Sources */,
+				4FB4411F29E44B6E002F6CC2 /* CockpitViewController.swift in Sources */,
 				85F3A31A29DAFCA90097579B /* LyraApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
