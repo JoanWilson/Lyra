@@ -9,7 +9,7 @@ import Foundation
 
 public protocol StorageProtocol {
     func createGameState(with gameState: GameStateEntity?) -> GameStateEntity?
-    func getGameStateByUUID(_ uuid: UUID) -> GameStateEntity?
+    func getGameStateByUUID(_ uuid: UUID) -> GameState?
     func getAllGameStates() -> [GameStateEntity]
     func removeGameState(with gameState: GameStateEntity) -> Bool
     func updateGameState(with gameState: GameStateEntity) -> GameStateEntity?

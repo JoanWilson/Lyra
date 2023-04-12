@@ -52,13 +52,14 @@ final class CoreDataStorageTests: XCTestCase {
         let gameStateEntity = GameStateEntity(id: UUID(), currentLevel: 2, creationDate: Date(), runes: [])
         _ = sut.createGameState(with: gameStateEntity)
         let gameStateFetched = sut.getGameStateByUUID(gameStateEntity.id)
-        XCTAssertEqual(gameStateEntity, gameStateFetched)
+        let convertedGameState = sut.container.convertGameStateCoreDataToEntity(gameState: gameStateFetched)
+        XCTAssertEqual(gameStateEntity, convertedGameState)
     }
 
     func test_getGameStateByUUID_MustReturnNil_WithNotCreatedObject() throws {
         let gameStateEntity = GameStateEntity(id: UUID(), currentLevel: 2, creationDate: Date(), runes: [])
         let gameStateFetched = sut.getGameStateByUUID(gameStateEntity.id)
-        XCTAssertNil( gameStateFetched)
+        XCTAssertNil(gameStateFetched)
     }
 
     func test_getAllGameStates_MustReturnAllInsertedStates() {

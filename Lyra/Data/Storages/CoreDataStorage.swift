@@ -36,8 +36,21 @@ public final class CoreDataStorage: StorageProtocol {
         }
     }
 
-    public func getGameStateByUUID(_ uuid: UUID) -> GameStateEntity? {
-    nil
+    public func getGameStateByUUID(_ uuid: UUID) -> GameState? {
+        let fetchRequest: NSFetchRequest<GameState> = GameState.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", uuid as CVarArg)
+        do {
+            let results = try container.viewContext.fetch(fetchRequest)
+            guard let objectFound = results.first else {
+                print("Found nil fetching GameStates")
+                return nil
+            }
+            return objectFound
+        } catch {
+            print("Fetch unabled")
+            return nil
+        }
+
     }
 
     public func getAllGameStates() -> [GameStateEntity] {
@@ -45,8 +58,24 @@ public final class CoreDataStorage: StorageProtocol {
     }
 
     public func removeGameState(with gameState: GameStateEntity) -> Bool {
+        guard let objectFound = getGameStateByUUID(gameState.id) else {
+            print("Object didnt found in CoreData, not possible to delete")
+            return false
+        }
+        container.viewContext.delete(objectFound)
 
-        return true
+        if container.viewContext.hasChanges {
+            do {
+                try container.viewContext.save()
+                return true
+            } catch {
+                print("It wasnt possible to save Core Data Context")
+                return false
+            }
+        } else {
+            print("There is no changed to save in CoreData")
+            return false
+        }
     }
 
     public func updateGameState(with gameState: GameStateEntity) -> GameStateEntity? {
@@ -63,7 +92,7 @@ public final class CoreDataStorage: StorageProtocol {
     }
 
     public func getAllRunes() -> [RuneEntity] {
-        []
+        
     }
 
 

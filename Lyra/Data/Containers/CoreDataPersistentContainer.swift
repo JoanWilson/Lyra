@@ -75,6 +75,22 @@ public struct CoreDataPersistentContainer {
         }
     }
 
+    public func convertGameStateCoreDataToEntity(gameState: GameState?) -> GameStateEntity? {
+        guard let gameState = gameState else {
+            print("GameState argument is Nil")
+            return nil
+        }
+
+        guard let savedRunes = gameState.runes?.allObjects as? [RuneEntity],
+              let savedId = gameState.id,
+              let savedCreationDate = gameState.creationDate else {
+            print("Saved gameState has nil attributes")
+            return nil
+        }
+
+        return GameStateEntity(id: savedId, currentLevel: Int(gameState.currentLevel), creationDate: savedCreationDate, runes: savedRunes)
+    }
+
     public func compareRunes(rune: Rune?, runeEntity: RuneEntity?) -> RuneEntity? {
         guard let rune = rune else {
             print("Rune argument is Nil")
