@@ -4,7 +4,7 @@
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="currentLevel" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="runes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rune" inverseName="gameState" inverseEntity="Rune"/>
+        <relationship name="runes" toMany="YES" deletionRule="Nullify" destinationEntity="Rune" inverseName="gameState" inverseEntity="Rune"/>
     </entity>
     <entity name="Rune" representedClassName="Rune" syncable="YES" codeGenerationType="class">
         <attribute name="effect" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>

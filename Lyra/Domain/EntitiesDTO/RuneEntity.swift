@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct RuneEntity {
+public struct RuneEntity: Equatable {
     let id = UUID()
     let name: String
     let effect: Int
@@ -16,4 +16,10 @@ public struct RuneEntity {
         self.name = name
         self.effect = effect
     }
+
+    public static func ==(lhs: RuneEntity, rhs: RuneEntity) -> Bool {
+        return lhs.name == rhs.name &&
+            lhs.effect == rhs.effect
+    }
 }
+

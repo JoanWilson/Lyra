@@ -208,7 +208,7 @@
 		85D8692729E588B20073DCF4 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				85D8692A29E588CA0073DCF4 /* Entities */,
+				85D8692A29E588CA0073DCF4 /* EntitiesDTO */,
 				85D8692929E588C40073DCF4 /* UseCases */,
 			);
 			path = Domain;
@@ -234,13 +234,13 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		85D8692A29E588CA0073DCF4 /* Entities */ = {
+		85D8692A29E588CA0073DCF4 /* EntitiesDTO */ = {
 			isa = PBXGroup;
 			children = (
 				85D8693629E59B390073DCF4 /* GameStateEntity.swift */,
 				85D8693829E59B410073DCF4 /* RuneEntity.swift */,
 			);
-			path = Entities;
+			path = EntitiesDTO;
 			sourceTree = "<group>";
 		};
 		85D8692B29E588D40073DCF4 /* Repositories */ = {
