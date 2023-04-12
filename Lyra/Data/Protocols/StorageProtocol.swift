@@ -15,5 +15,5 @@ public protocol StorageProtocol {
     func removeRune(with rune: RuneEntity) -> Bool
     func updateRune(with rune: RuneEntity) -> RuneEntity?
     func compareGameStates(gameState: GameState?, gameStateEntity: GameStateEntity?) -> GameStateEntity?
-    func compareRunes() -> RuneEntity?
+    func compareRunes(rune: Rune?, runeEntity: RuneEntity?) -> RuneEntity?
 }
