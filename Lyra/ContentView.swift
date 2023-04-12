@@ -11,7 +11,9 @@ struct ContentView: View {
     var body: some View {
         VStack {
 //            CockpitView()
-            StartScreen()
+//            StartScreen()
+            CutsceneView(historyText: "Vamos ver se funciona")
+//            IntroCutscene01()
         }
     }
 }
