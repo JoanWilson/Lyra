@@ -10,9 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-//            LevelsView()
+            LevelsView()
 //            StartScreen()
-            CutsceneView(historyText: "Vamos ver se funciona")
+//            CutsceneView(historyText: "Vamos ver se funciona")
 //            IntroCutscene01()
         }
     }
