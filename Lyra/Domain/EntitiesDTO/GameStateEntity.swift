@@ -8,12 +8,13 @@
 import Foundation
 
 public struct GameStateEntity: Equatable {
-    let id = UUID()
-    var currentLevel: Int
-    let creationDate: Date
-    var runes: [RuneEntity]
+    public let id: UUID
+    public var currentLevel: Int
+    public let creationDate: Date
+    public var runes: [RuneEntity]
 
-    public init(currentLevel: Int, creationDate: Date, runes: [RuneEntity]) {
+    public init(id: UUID, currentLevel: Int, creationDate: Date, runes: [RuneEntity]) {
+        self.id = id
         self.currentLevel = currentLevel
         self.creationDate = creationDate
         self.runes = runes

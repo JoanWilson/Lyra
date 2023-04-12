@@ -8,11 +8,12 @@
 import Foundation
 
 public struct RuneEntity: Equatable {
-    let id = UUID()
-    let name: String
-    let effect: Int
+    public let id: UUID
+    public var name: String
+    public var effect: Int
 
-    public init(name: String, effect: Int) {
+    public init(id: UUID, name: String, effect: Int) {
+        self.id = id
         self.name = name
         self.effect = effect
     }

@@ -9,11 +9,13 @@ import Foundation
 
 public protocol StorageProtocol {
     func createGameState(with gameState: GameStateEntity?) -> GameStateEntity?
+    func getGameStateByUUID(_ uuid: UUID) -> GameStateEntity?
+    func getAllGameStates() -> [GameStateEntity]
     func removeGameState(with gameState: GameStateEntity) -> Bool
     func updateGameState(with gameState: GameStateEntity) -> GameStateEntity?
-    func addRune(with rune: RuneEntity) -> RuneEntity?
+    func createRune(with rune: RuneEntity?) -> RuneEntity?
+    func getRuneByUUID(_ uuid: UUID) -> RuneEntity?
+    func getAllRunes() -> [RuneEntity]
     func removeRune(with rune: RuneEntity) -> Bool
     func updateRune(with rune: RuneEntity) -> RuneEntity?
-    func compareGameStates(gameState: GameState?, gameStateEntity: GameStateEntity?) -> GameStateEntity?
-    func compareRunes(rune: Rune?, runeEntity: RuneEntity?) -> RuneEntity?
 }
