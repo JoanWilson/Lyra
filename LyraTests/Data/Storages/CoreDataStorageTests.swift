@@ -22,16 +22,65 @@ final class CoreDataStorageTests: XCTestCase {
         sut = nil
     }
 
-    func testExample() throws {
+    func test_createGameState_MustReturnNotNil() throws {
+        let gameState = GameStateEntity(currentLevel: 0, creationDate: Date(), runes: [])
+        let hasSaved = sut.createGameState(with: gameState)
+        XCTAssertEqual(hasSaved, gameState)
+    }
+
+    func test_createGameState_MustReturnNil_WithGameStateNil() throws {
+        let gameState: GameStateEntity? = nil
+        let hasSaved = sut.createGameState(with: gameState)
+        XCTAssertEqual(hasSaved, gameState)
+    }
+
+    func test_removeGameState_MustReturnTrue() throws {
+        let gameState = GameStateEntity(currentLevel: 0, creationDate: Date(), runes: [])
+        _ = sut.createGameState(with: gameState)
+        let hasRemoved = sut.removeGameState(with: gameState)
+        XCTAssertEqual(hasRemoved, true)
+    }
+
+    func test_removeGameState_MustReturnFalse() throws {
+        let gameStateInserted = GameStateEntity(currentLevel: 0, creationDate: Date(), runes: [])
+        let gameStateNonexistent = GameStateEntity(currentLevel: 10, creationDate: Date(), runes: [])
+        _ = sut.createGameState(with: gameStateInserted)
+        let hasRemoved = sut.removeGameState(with: gameStateNonexistent)
+        XCTAssertEqual(hasRemoved, false)
+    }
+
+    func test_updateGameState_MustReturnEqualToInsertedObject() throws {
+        XCTFail()
+    }
+
+    func test_updateGameState_MustReturnNil() throws {
+
+    }
+
+    func test_addRune_MustReturnEqualToCreatedRune() throws {
         
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_addRune_MustReturnNil() throws {
+
     }
+
+    func test_removeRune_MustReturnTrue() throws {
+
+    }
+
+    func test_removeRune_MustReturnFalse() throws {
+
+    }
+
+    func test_updateRune_MustReturnEqualToInsertedObject() throws {
+
+    }
+
+    func test_updateRune_MustReturnNil() throws {
+
+    }
+
 
 
 
