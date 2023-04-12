@@ -9,6 +9,5 @@ import Foundation
 
 public protocol AddRuneUseCase {
     typealias Result = Swift.Result<Bool, Error>
-    func add(_ rune: Rune, completion: @escaping (Result) -> Void)
+    func add(_ rune: RuneEntity, completion: @escaping (Result) -> Void)
 }
-

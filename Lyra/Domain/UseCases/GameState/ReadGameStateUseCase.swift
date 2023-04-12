@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol ReadGameStateUseCase {
-    typealias Result = Swift.Result<GameState, Error>
-    func read(_ gameState: GameState, completion: @escaping (Result) -> Void)
+    typealias Result = Swift.Result<GameStateEntity, Error>
+    func read(_ gameState: GameStateEntity, completion: @escaping (Result) -> Void)
 }

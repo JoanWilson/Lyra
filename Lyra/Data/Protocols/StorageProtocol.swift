@@ -8,10 +8,10 @@
 import Foundation
 
 public protocol StorageProtocol {
-    func createGameState(with gameState: GameState) -> Bool
-    func removeGameState(with gameState: GameState) -> Bool
-    func updateGameState(with gameState: GameState) -> GameState
-    func addRune(with rune: Rune) -> Bool
-    func removeRune(with rune: Rune) -> Bool
-    func updateRune(with rune: Rune) -> Rune
+    func createGameState(with gameState: GameStateEntity) -> Bool
+    func removeGameState(with gameState: GameStateEntity) -> Bool
+    func updateGameState(with gameState: GameStateEntity) -> GameStateEntity
+    func addRune(with rune: RuneEntity) -> Bool
+    func removeRune(with rune: RuneEntity) -> Bool
+    func updateRune(with rune: RuneEntity) -> RuneEntity
 }

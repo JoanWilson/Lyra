@@ -9,5 +9,5 @@ import Foundation
 
 public protocol RemoveRuneUseCase {
     typealias Result = Swift.Result<Bool, Error>
-    func remove(_ rune: Rune, completion: @escaping (Result) -> Void)
+    func remove(_ rune: RuneEntity, completion: @escaping (Result) -> Void)
 }

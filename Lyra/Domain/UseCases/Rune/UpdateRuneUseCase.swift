@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol UpdateRuneUseCase {
-    typealias Result = Swift.Result<Rune, Error>
-    func update(_ rune: Rune, completion: @escaping (Result) -> Void)
+    typealias Result = Swift.Result<RuneEntity, Error>
+    func update(_ rune: RuneEntity, completion: @escaping (Result) -> Void)
 }

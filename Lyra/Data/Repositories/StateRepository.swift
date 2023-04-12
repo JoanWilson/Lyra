@@ -20,37 +20,38 @@ public final class StateRepository: StateRepositoryProtocol {
 }
 
 extension StateRepository: AddRuneUseCase, RemoveRuneUseCase, UpdateRuneUseCase, ReadRuneUseCase {
-    public func read(_ rune: Rune, completion: @escaping (ReadRuneUseCase.Result) -> Rune) {
+    public func read(_ rune: RuneEntity, completion: @escaping (ReadRuneUseCase.Result) -> RuneEntity) {
         
     }
 
-    public func add(_ rune: Rune, completion: @escaping (AddRuneUseCase.Result) -> Void) {
+    public func add(_ rune: RuneEntity, completion: @escaping (AddRuneUseCase.Result) -> Void) {
 
     }
 
-    public func update(_ rune: Rune, completion: @escaping (UpdateRuneUseCase.Result) -> Void) {
+    public func update(_ rune: RuneEntity, completion: @escaping (UpdateRuneUseCase.Result) -> Void) {
 
     }
 
-    public func remove(_ rune: Rune, completion: @escaping (RemoveRuneUseCase.Result) -> Void) {
+    public func remove(_ rune: RuneEntity, completion: @escaping (RemoveRuneUseCase.Result) -> Void) {
 
     }
 }
 
 extension StateRepository: AddGameStateUseCase, RemoveGameStateUseCase, UpdateGameStateUseCase, ReadGameStateUseCase {
-    public func read(_ gameState: GameState, completion: @escaping (ReadGameStateUseCase.Result) -> Void) {
+
+    public func read(_ gameState: GameStateEntity, completion: @escaping (ReadGameStateUseCase.Result) -> Void) {
 
     }
 
-    public func add(_ gameState: GameState, completion: @escaping (AddGameStateUseCase.Result) -> Void) {
+    public func add(_ gameState: GameStateEntity, completion: @escaping (AddGameStateUseCase.Result) -> Void) {
 
     }
 
-    public func update(_ gameState: GameState, completion: @escaping (UpdateGameStateUseCase.Result) -> Void) {
+    public func update(_ gameState: GameStateEntity, completion: @escaping (UpdateGameStateUseCase.Result) -> Void) {
 
     }
 
-    public func remove(_ gameState: GameState, completion: @escaping (RemoveGameStateUseCase.Result) -> Void) {
+    public func remove(_ gameState: GameStateEntity, completion: @escaping (RemoveGameStateUseCase.Result) -> Void) {
 
     }
 }

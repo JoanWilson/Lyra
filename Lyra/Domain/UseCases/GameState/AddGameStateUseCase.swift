@@ -9,5 +9,5 @@ import Foundation
 
 public protocol AddGameStateUseCase {
     typealias Result = Swift.Result<Bool, Error>
-    func add(_ gameState: GameState, completion: @escaping (Result) -> Void)
+    func add(_ gameState: GameStateEntity, completion: @escaping (Result) -> Void)
 }

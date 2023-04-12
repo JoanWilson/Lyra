@@ -9,5 +9,5 @@ import Foundation
 
 public protocol RemoveGameStateUseCase {
     typealias Result = Swift.Result<Bool, Error>
-    func remove(_ gameState: GameState, completion: @escaping (Result) -> Void)
+    func remove(_ gameState: GameStateEntity, completion: @escaping (Result) -> Void)
 }

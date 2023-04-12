@@ -7,7 +7,7 @@
 
 import CoreData
 
-struct CoreDataPersistentContainer {
+public struct CoreDataPersistentContainer {
     let container: NSPersistentContainer
 
     static let shared = CoreDataPersistentContainer()
@@ -23,8 +23,8 @@ struct CoreDataPersistentContainer {
         return result
     }()
 
-    init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "TripPlannerModel") // else UnsafeRawBufferPointer with negative count
+    public init(inMemory: Bool = false) {
+        container = NSPersistentContainer(name: "StateDatabase") // else UnsafeRawBufferPointer with negative count
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-public struct Rune {
-    let uuid = UUID()
+public struct RuneEntity {
+    let id = UUID()
     let name: String
     let effect: Int
 

@@ -8,8 +8,8 @@
 import Foundation
 
 public protocol UpdateGameStateUseCase {
-    typealias Result = Swift.Result<GameState, Error>
-    func update(_ gameState: GameState, completion: @escaping (Result) -> Void)
+    typealias Result = Swift.Result<GameStateEntity, Error>
+    func update(_ gameState: GameStateEntity, completion: @escaping (Result) -> Void)
 }
 
 

@@ -7,8 +7,8 @@
 
 import Foundation
 
-public struct GameState {
-    let uuid = UUID()
+public struct GameStateEntity {
+    let id = UUID()
     var currentLevel: Int
     let creationDate: Date
     var runes: [Rune]

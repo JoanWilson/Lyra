@@ -12,10 +12,11 @@
 		4FB4411F29E44B6E002F6CC2 /* CockpitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */; };
 		4FB4412929E44DF4002F6CC2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4412829E44DF4002F6CC2 /* GameScene.swift */; };
 		4FB4412D29E45271002F6CC2 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */; };
+		8504BB2D29E6509F00692D15 /* CoreDataStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8504BB2C29E6509F00692D15 /* CoreDataStorageTests.swift */; };
 		85D8693129E597FB0073DCF4 /* StateDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85D8692F29E597FB0073DCF4 /* StateDatabase.xcdatamodeld */; };
 		85D8693529E59ACF0073DCF4 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693429E59ACF0073DCF4 /* StorageProtocol.swift */; };
-		85D8693729E59B390073DCF4 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693629E59B390073DCF4 /* GameState.swift */; };
-		85D8693929E59B410073DCF4 /* Rune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693829E59B410073DCF4 /* Rune.swift */; };
+		85D8693729E59B390073DCF4 /* GameStateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693629E59B390073DCF4 /* GameStateEntity.swift */; };
+		85D8693929E59B410073DCF4 /* RuneEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693829E59B410073DCF4 /* RuneEntity.swift */; };
 		85D8693B29E59C460073DCF4 /* CoreDataPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693A29E59C460073DCF4 /* CoreDataPersistentContainer.swift */; };
 		85D8693E29E59D590073DCF4 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693D29E59D590073DCF4 /* CoreDataStorage.swift */; };
 		85D8694029E59E670073DCF4 /* AddGameStateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693F29E59E670073DCF4 /* AddGameStateUseCase.swift */; };
@@ -59,10 +60,11 @@
 		4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockpitViewController.swift; sourceTree = "<group>"; };
 		4FB4412829E44DF4002F6CC2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		8504BB2C29E6509F00692D15 /* CoreDataStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageTests.swift; sourceTree = "<group>"; };
 		85D8693029E597FB0073DCF4 /* StateDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StateDatabase.xcdatamodel; sourceTree = "<group>"; };
 		85D8693429E59ACF0073DCF4 /* StorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
-		85D8693629E59B390073DCF4 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
-		85D8693829E59B410073DCF4 /* Rune.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rune.swift; sourceTree = "<group>"; };
+		85D8693629E59B390073DCF4 /* GameStateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateEntity.swift; sourceTree = "<group>"; };
+		85D8693829E59B410073DCF4 /* RuneEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneEntity.swift; sourceTree = "<group>"; };
 		85D8693A29E59C460073DCF4 /* CoreDataPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistentContainer.swift; sourceTree = "<group>"; };
 		85D8693D29E59D590073DCF4 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		85D8693F29E59E670073DCF4 /* AddGameStateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameStateUseCase.swift; sourceTree = "<group>"; };
@@ -187,6 +189,22 @@
 			path = Start;
 			sourceTree = "<group>";
 		};
+		8504BB2A29E6506900692D15 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8504BB2B29E6507500692D15 /* Storages */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8504BB2B29E6507500692D15 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				8504BB2C29E6509F00692D15 /* CoreDataStorageTests.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
 		85D8692729E588B20073DCF4 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,8 +237,8 @@
 		85D8692A29E588CA0073DCF4 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				85D8693629E59B390073DCF4 /* GameState.swift */,
-				85D8693829E59B410073DCF4 /* Rune.swift */,
+				85D8693629E59B390073DCF4 /* GameStateEntity.swift */,
+				85D8693829E59B410073DCF4 /* RuneEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -341,6 +359,7 @@
 		85F3A32929DAFCAB0097579B /* LyraTests */ = {
 			isa = PBXGroup;
 			children = (
+				8504BB2A29E6506900692D15 /* Data */,
 				85F3A32A29DAFCAB0097579B /* LyraTests.swift */,
 			);
 			path = LyraTests;
@@ -486,7 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85D8693B29E59C460073DCF4 /* CoreDataPersistentContainer.swift in Sources */,
-				85D8693929E59B410073DCF4 /* Rune.swift in Sources */,
+				85D8693929E59B410073DCF4 /* RuneEntity.swift in Sources */,
 				85D8694A29E59F8D0073DCF4 /* UpdateRuneUseCase.swift in Sources */,
 				85D8693129E597FB0073DCF4 /* StateDatabase.xcdatamodeld in Sources */,
 				4FB4412929E44DF4002F6CC2 /* GameScene.swift in Sources */,
@@ -504,7 +523,7 @@
 				4FB4412D29E45271002F6CC2 /* ViewCodeProtocol.swift in Sources */,
 				85D8694629E59F4F0073DCF4 /* UpdateGameStateUseCase.swift in Sources */,
 				4FB4411F29E44B6E002F6CC2 /* CockpitViewController.swift in Sources */,
-				85D8693729E59B390073DCF4 /* GameState.swift in Sources */,
+				85D8693729E59B390073DCF4 /* GameStateEntity.swift in Sources */,
 				85D8693529E59ACF0073DCF4 /* StorageProtocol.swift in Sources */,
 				85F3A31A29DAFCA90097579B /* LyraApp.swift in Sources */,
 			);
@@ -514,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8504BB2D29E6509F00692D15 /* CoreDataStorageTests.swift in Sources */,
 				85F3A32B29DAFCAB0097579B /* LyraTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

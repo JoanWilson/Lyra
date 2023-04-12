@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol ReadRuneUseCase {
-    typealias Result = Swift.Result<Rune, Error>
-    func read(_ rune: Rune, completion: @escaping (Result) -> Rune)
+    typealias Result = Swift.Result<RuneEntity, Error>
+    func read(_ rune: RuneEntity, completion: @escaping (Result) -> RuneEntity)
 }

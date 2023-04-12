@@ -11,31 +11,32 @@ public final class CoreDataStorage: StorageProtocol {
 
     private var container: CoreDataPersistentContainer
 
-    init(container: CoreDataPersistentContainer) {
+    public init(container: CoreDataPersistentContainer) {
         self.container = container
     }
 
-    public func createGameState(with gameState: GameState) -> Bool {
+    public func createGameState(with gameState: GameStateEntity) -> Bool {
+        
         return true
     }
 
-    public func removeGameState(with gameState: GameState) -> Bool {
+    public func removeGameState(with gameState: GameStateEntity) -> Bool {
         return true
     }
 
-    public func updateGameState(with gameState: GameState) -> GameState {
-        return GameState(currentLevel: 0, creationDate: Date(), runes: [])
+    public func updateGameState(with gameState: GameStateEntity) -> GameStateEntity {
+        return GameStateEntity(currentLevel: 0, creationDate: Date(), runes: [])
     }
 
-    public func addRune(with rune: Rune) -> Bool {
+    public func addRune(with rune: RuneEntity) -> Bool {
         return true
     }
 
-    public func removeRune(with rune: Rune) -> Bool {
+    public func removeRune(with rune: RuneEntity) -> Bool {
         return true
     }
 
-    public func updateRune(with rune: Rune) -> Rune {
-        return Rune(name: "", effect: 0)
+    public func updateRune(with rune: RuneEntity) -> RuneEntity {
+        return RuneEntity(name: "", effect: 0)
     }
 }
