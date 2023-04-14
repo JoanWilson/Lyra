@@ -50,11 +50,25 @@ public final class CoreDataStorage: StorageProtocol {
             print("Fetch unabled")
             return nil
         }
-
     }
 
     public func getAllGameStates() -> [GameStateEntity] {
-        []
+        let fetchRequest: NSFetchRequest<GameState> = GameState.fetchRequest()
+        do {
+            let results = try container.viewContext.fetch(fetchRequest)
+            var convertedResults = [GameStateEntity]()
+            for game in results {
+                guard let convertedGame = container.convertGameStateCoreDataToEntity(gameState: game) else {
+                    print("Impossible to convert fetched GameState to GameState Entity")
+                    return []
+                }
+                convertedResults.append(convertedGame)
+            }
+            return convertedResults
+        } catch {
+            print("Impossible to fetch results")
+            return []
+        }
     }
 
     public func removeGameState(with gameState: GameStateEntity) -> Bool {
@@ -78,8 +92,36 @@ public final class CoreDataStorage: StorageProtocol {
         }
     }
 
-    public func updateGameState(with gameState: GameStateEntity) -> GameStateEntity? {
-        return GameStateEntity(id: UUID(), currentLevel: 0, creationDate: Date(), runes: [])
+    public func updateGameState(_ gameState: GameStateEntity, uuid: UUID) -> GameStateEntity? {
+        guard let objectFound = getGameStateByUUID(uuid) else {
+            return nil
+        }
+
+        objectFound.currentLevel = Int32(gameState.currentLevel)
+        var runesConverted = NSOrderedSet()
+        for runeEntity in gameState.runes {
+            let rune: Rune = Rune(context: container.viewContext)
+            rune.id = runeEntity.id
+            rune.orderId = runeEntity.orderId
+            rune.name = runeEntity.name
+            rune.effect = Int32(runeEntity.effect)
+            runesConverted.set
+        }
+
+        objectFound.runes = runesConverted
+
+        if container.viewContext.hasChanges {
+            do {
+                try container.viewContext.save()
+                return container.convertGameStateCoreDataToEntity(gameState: objectFound)
+            } catch {
+                print("It wasnt possible to save Core Data Context")
+                return nil
+            }
+        } else {
+            print("There is no changed to save in CoreData")
+            return nil
+        }
     }
 
     public func createRune(with rune: RuneEntity?) -> RuneEntity? {
@@ -92,7 +134,7 @@ public final class CoreDataStorage: StorageProtocol {
     }
 
     public func getAllRunes() -> [RuneEntity] {
-        
+        []
     }
 
 
@@ -101,6 +143,6 @@ public final class CoreDataStorage: StorageProtocol {
     }
 
     public func updateRune(with rune: RuneEntity) -> RuneEntity? {
-        return RuneEntity(id: UUID(), name: "", effect: 0)
+        return RuneEntity(id: UUID(), name: "", effect: 0, orderId: 0)
     }
 }

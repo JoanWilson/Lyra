@@ -81,8 +81,8 @@ final class CoreDataStorageTests: XCTestCase {
         var gameState = GameStateEntity(id: UUID(), currentLevel: 5, creationDate: Date(), runes: [])
         _ = sut.createGameState(with: gameState)
         gameState.currentLevel += 1
-        gameState.runes.append(RuneEntity(id: UUID(), name: "test", effect: 0))
-        let updatedState = sut.updateGameState(with: gameState)
+        gameState.runes.append(RuneEntity(id: UUID(), name: "test", effect: 0, orderId: 0))
+        let updatedState = sut.updateGameState(gameState, uuid: gameState.id)
         XCTAssertEqual(updatedState, gameState)
     }
 
@@ -91,12 +91,12 @@ final class CoreDataStorageTests: XCTestCase {
         _ = sut.createGameState(with: gameState)
         let gameStateFake = GameStateEntity(id: UUID(), currentLevel: 2, creationDate: Date(), runes: [])
 
-        let updatedState = sut.updateGameState(with: gameStateFake)
+        let updatedState = sut.updateGameState(gameStateFake, uuid: gameState.id)
         XCTAssertNil(updatedState)
     }
 
     func test_createdRune_MustReturnEqualToCreatedRune() throws {
-        let rune = RuneEntity(id: UUID(), name: "test", effect: 0)
+        let rune = RuneEntity(id: UUID(), name: "test", effect: 0, orderId: 0)
         let hasSaved = sut.createRune(with: rune)
         XCTAssertEqual(hasSaved, rune)
     }
@@ -108,35 +108,35 @@ final class CoreDataStorageTests: XCTestCase {
     }
 
     func test_removeRune_MustReturnTrue() throws {
-        let rune = RuneEntity(id: UUID(), name: "test", effect: 0)
+        let rune = RuneEntity(id: UUID(), name: "test", effect: 0, orderId: 0)
         _ = sut.createRune(with: rune)
         let hasRemoved = sut.removeRune(with: rune)
         XCTAssertEqual(hasRemoved, true)
     }
 
     func test_removeRune_MustReturnFalse() throws {
-        let rune = RuneEntity(id: UUID(), name: "test", effect: 0)
+        let rune = RuneEntity(id: UUID(), name: "test", effect: 0, orderId: 0)
         let hasRemoved = sut.removeRune(with: rune)
         XCTAssertEqual(hasRemoved, false)
     }
 
     func test_getRuneByUUID_MustReturnCorrectRuneEntity() throws {
-        let runeEntity = RuneEntity(id: UUID(), name: "test", effect: 0)
+        let runeEntity = RuneEntity(id: UUID(), name: "test", effect: 0, orderId: 0)
         _ = sut.createRune(with: runeEntity)
         let runeFetched = sut.getRuneByUUID(runeEntity.id)
         XCTAssertEqual(runeEntity, runeFetched)
     }
 
     func test_getRuneByUUID_MustReturnNil_WithNotCreatedRune() throws {
-        let runeEntity = RuneEntity(id: UUID(), name: "test", effect: 0)
+        let runeEntity = RuneEntity(id: UUID(), name: "test", effect: 0, orderId: 0)
         let runeFetched = sut.getRuneByUUID(runeEntity.id)
         XCTAssertNil(runeFetched)
     }
 
     func test_getAllRunes_MustReturnAllInsertedRunes() throws {
         var runeArray = [RuneEntity]()
-        let runeEntity = RuneEntity(id: UUID(), name: "test", effect: 0)
-        let runeEntity2 = RuneEntity(id: UUID(), name: "test2", effect: 1)
+        let runeEntity = RuneEntity(id: UUID(), name: "test", effect: 0, orderId: 0)
+        let runeEntity2 = RuneEntity(id: UUID(), name: "test2", effect: 1, orderId: 1)
         runeArray.append(runeEntity)
         runeArray.append(runeEntity2)
 
@@ -149,16 +149,16 @@ final class CoreDataStorageTests: XCTestCase {
     }
 
     func test_updateRune_MustReturnEqualToInsertedObject() throws {
-        let rune = RuneEntity(id: UUID(), name: "test", effect: 0)
+        let rune = RuneEntity(id: UUID(), name: "test", effect: 0, orderId: 0)
         _ = sut.createRune(with: rune)
-        let runeFake = RuneEntity(id: UUID(), name: "fake", effect: 10)
+        let runeFake = RuneEntity(id: UUID(), name: "fake", effect: 10, orderId: 0)
 
         let updatedRune = sut.updateRune(with: runeFake)
         XCTAssertNil(updatedRune)
     }
 
     func test_updateRune_MustReturnNil() throws {
-        var rune = RuneEntity(id: UUID(), name: "test", effect: 0)
+        var rune = RuneEntity(id: UUID(), name: "test", effect: 0, orderId: 0)
         _ = sut.createRune(with: rune)
         rune.name = "changed"
         rune.effect = 2

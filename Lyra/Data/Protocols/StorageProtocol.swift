@@ -12,7 +12,7 @@ public protocol StorageProtocol {
     func getGameStateByUUID(_ uuid: UUID) -> GameState?
     func getAllGameStates() -> [GameStateEntity]
     func removeGameState(with gameState: GameStateEntity) -> Bool
-    func updateGameState(with gameState: GameStateEntity) -> GameStateEntity?
+    func updateGameState(_ gameState: GameStateEntity, uuid: UUID) -> GameStateEntity?
     func createRune(with rune: RuneEntity?) -> RuneEntity?
     func getRuneByUUID(_ uuid: UUID) -> RuneEntity?
     func getAllRunes() -> [RuneEntity]
