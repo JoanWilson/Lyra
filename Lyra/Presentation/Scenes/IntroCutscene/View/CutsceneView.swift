@@ -39,8 +39,7 @@ struct CutsceneView: View {
         .onAppear {
             typeWriter()
             idle = true
-        }
-        .navigationBarBackButtonHidden()
+        }.ignoresSafeArea()
     }
 
     func typeWriter(at position: Int = 0) {

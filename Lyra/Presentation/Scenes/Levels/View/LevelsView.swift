@@ -9,9 +9,7 @@ import SwiftUI
 
 struct LevelsView: View {
 
-    @State private var images = ["moon", "planet1", "planet2", "planet3"]
-    @State private var textos = ["teste1", "teste2", "teste3", "teste4"]
-    @State private var idle: Bool = false
+    @ObservedObject var viewModel = LevelsViewModel()
 
     var body: some View {
         GeometryReader { geo in
@@ -21,30 +19,49 @@ struct LevelsView: View {
                         .resizable()
                         .scaledToFill()
                         .blur(radius: 1)
-                        .scaleEffect(idle ? 2 : 1)
-                        .animation(Animation.linear(duration: 25).repeatForever(), value: idle)
+                        .scaleEffect(viewModel.idle ? 2 : 1)
+                        .animation(
+                            Animation.linear(duration: 25).repeatForever(),
+                            value: viewModel.idle
+                        )
                     VStack {
                         Text("SELECIONE UM PLANETA")
                             .foregroundColor(.white)
-                            .font(.custom("Coustard-Black", size: 48))
+                            .font(
+                                .custom(
+                                    "Coustard-Black",
+                                    size: 48 * geo.size.width/1366
+                                )
+                            )
                         ScrollView(.horizontal) {
                             HStack {
-                                ForEach(0..<images.count, id:\.self) { level in
+                                ForEach(0..<viewModel.images.count, id:\.self) { level in
                                     VStack {
                                         NavigationLink(destination: IntroCutscene01()) {
-                                            Image(images[level])
-                                                .shadow(color: Color("historyBarColor"), radius: idle ? 13 : 5, x: 5, y: 5)
-                                                .animation(Animation.linear(duration: 1).repeatForever(), value: idle)
+                                            Image(viewModel.images[level])
+                                                .shadow(
+                                                    color: Color("historyBarColor"),
+                                                    radius: viewModel.idle ? 13 : 5, x: 5, y: 5
+                                                )
+                                                .animation(
+                                                    Animation.linear(duration: 1).repeatForever(),
+                                                    value: viewModel.idle
+                                                )
                                         }.frame(width: geo.size.width * 0.5)
-                                        Text("\(images[level])")
+                                        Text("\(viewModel.images[level])")
                                             .foregroundColor(.white)
-                                            .font(.custom("Coustard-Regular", size: 36))
+                                            .font(
+                                                .custom(
+                                                    "Coustard-Regular",
+                                                    size: 36 * geo.size.width/1366
+                                                )
+                                            )
                                     }
                                 }
                             }
                         }
                     }.onAppear {
-                        idle = true
+                        viewModel.idle = true
                     }
                 }
             }
@@ -62,5 +79,9 @@ struct LevelsView_Previews: PreviewProvider {
             .previewDevice(PreviewDevice(rawValue: "iPad Pro (11-inch) (4th generation)"))
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDisplayName("iPad Pro")
+        LevelsView()
+            .previewDevice(PreviewDevice(rawValue: "iPad mini (6th generation)"))
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDisplayName("iPad mini")
     }
 }
