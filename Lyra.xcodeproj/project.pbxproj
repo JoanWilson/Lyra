@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		4F15570629E5DDC800B16345 /* CutsceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F15570529E5DDC800B16345 /* CutsceneView.swift */; };
+		4F3940BE29E6D98B0091368E /* IntroCutscene02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3940BD29E6D98B0091368E /* IntroCutscene02.swift */; };
+		4F3940C029E6EF9F0091368E /* IntroCutscene03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3940BF29E6EF9F0091368E /* IntroCutscene03.swift */; };
+		4F57FACB29E9829F00091F5A /* IntroCutscene04.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57FACA29E9829F00091F5A /* IntroCutscene04.swift */; };
 		4FB4411A29E448EE002F6CC2 /* CockpitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4411929E448EE002F6CC2 /* CockpitView.swift */; };
 		4FB4411C29E44A04002F6CC2 /* CockpitRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4411B29E44A04002F6CC2 /* CockpitRepresentable.swift */; };
 		4FB4411F29E44B6E002F6CC2 /* CockpitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */; };
 		4FB4412929E44DF4002F6CC2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4412829E44DF4002F6CC2 /* GameScene.swift */; };
 		4FB4412D29E45271002F6CC2 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */; };
+		4FC8658A29E9990C00488FAE /* mySound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4FC8658929E9990C00488FAE /* mySound.m4a */; };
 		4FDC130629E58887002FA49F /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDC130529E58887002FA49F /* StartScreen.swift */; };
 		4FDC130D29E59E5E002FA49F /* Coustard-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FDC130B29E59E5E002FA49F /* Coustard-Black.ttf */; };
 		4FDC130E29E59E5E002FA49F /* Coustard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FDC130C29E59E5E002FA49F /* Coustard-Regular.ttf */; };
@@ -45,11 +49,15 @@
 
 /* Begin PBXFileReference section */
 		4F15570529E5DDC800B16345 /* CutsceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsceneView.swift; sourceTree = "<group>"; };
+		4F3940BD29E6D98B0091368E /* IntroCutscene02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCutscene02.swift; sourceTree = "<group>"; };
+		4F3940BF29E6EF9F0091368E /* IntroCutscene03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCutscene03.swift; sourceTree = "<group>"; };
+		4F57FACA29E9829F00091F5A /* IntroCutscene04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCutscene04.swift; sourceTree = "<group>"; };
 		4FB4411929E448EE002F6CC2 /* CockpitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockpitView.swift; sourceTree = "<group>"; };
 		4FB4411B29E44A04002F6CC2 /* CockpitRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockpitRepresentable.swift; sourceTree = "<group>"; };
 		4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockpitViewController.swift; sourceTree = "<group>"; };
 		4FB4412829E44DF4002F6CC2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		4FC8658929E9990C00488FAE /* mySound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = mySound.m4a; sourceTree = "<group>"; };
 		4FDC130529E58887002FA49F /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
 		4FDC130A29E59D69002FA49F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4FDC130B29E59E5E002FA49F /* Coustard-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Coustard-Black.ttf"; sourceTree = "<group>"; };
@@ -209,6 +217,9 @@
 			children = (
 				4F15570529E5DDC800B16345 /* CutsceneView.swift */,
 				4FEFF32429E642A40046BAA2 /* IntroCutscene01.swift */,
+				4F3940BD29E6D98B0091368E /* IntroCutscene02.swift */,
+				4F3940BF29E6EF9F0091368E /* IntroCutscene03.swift */,
+				4F57FACA29E9829F00091F5A /* IntroCutscene04.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -236,6 +247,7 @@
 		85F3A31829DAFCA90097579B /* Lyra */ = {
 			isa = PBXGroup;
 			children = (
+				4FC8658929E9990C00488FAE /* mySound.m4a */,
 				4FDC130A29E59D69002FA49F /* Info.plist */,
 				4FB4411529E44874002F6CC2 /* Presentation */,
 				85F3A31929DAFCA90097579B /* LyraApp.swift */,
@@ -378,6 +390,7 @@
 				4FDC130E29E59E5E002FA49F /* Coustard-Regular.ttf in Resources */,
 				4FDC130D29E59E5E002FA49F /* Coustard-Black.ttf in Resources */,
 				85F3A32129DAFCAB0097579B /* Preview Assets.xcassets in Resources */,
+				4FC8658A29E9990C00488FAE /* mySound.m4a in Resources */,
 				85F3A31E29DAFCAB0097579B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +425,9 @@
 				4FB4411C29E44A04002F6CC2 /* CockpitRepresentable.swift in Sources */,
 				4FB4412D29E45271002F6CC2 /* ViewCodeProtocol.swift in Sources */,
 				4FB4411F29E44B6E002F6CC2 /* CockpitViewController.swift in Sources */,
+				4F3940C029E6EF9F0091368E /* IntroCutscene03.swift in Sources */,
+				4F57FACB29E9829F00091F5A /* IntroCutscene04.swift in Sources */,
+				4F3940BE29E6D98B0091368E /* IntroCutscene02.swift in Sources */,
 				85F3A31A29DAFCA90097579B /* LyraApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,7 +587,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lyra/Preview Content\"";
-				DEVELOPMENT_TEAM = F2MBMJ3PK6;
+				DEVELOPMENT_TEAM = PPSYB39C6H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lyra/Info.plist;

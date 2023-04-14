@@ -10,10 +10,13 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-//            CockpitView()
-//            StartScreen()
-            CutsceneView(historyText: "Vamos ver se funciona")
-//            IntroCutscene01()
+            //            CockpitView()
+                        StartScreen()
+            //            CutsceneView(historyText: "Vamos ver se **funciona**")
+            //            IntroCutscene01()
+            //            IntroCutscene02()
+            //            IntroCutscene03()
+            //            IntroCutscene04()
         }
     }
 }
