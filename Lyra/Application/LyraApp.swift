@@ -13,6 +13,7 @@ struct LyraApp: App {
         WindowGroup {
             ContentView()
                 .ignoresSafeArea()
+                .persistentSystemOverlays(.hidden)
         }
     }
 }
