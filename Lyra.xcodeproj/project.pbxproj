@@ -16,6 +16,7 @@
 		4FB4411F29E44B6E002F6CC2 /* CockpitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */; };
 		4FB4412929E44DF4002F6CC2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4412829E44DF4002F6CC2 /* GameScene.swift */; };
 		4FB4412D29E45271002F6CC2 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */; };
+		8504BB2D29E6509F00692D15 /* CoreDataStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8504BB2C29E6509F00692D15 /* CoreDataStorageTests.swift */; };
 		4FC8658A29E9990C00488FAE /* mySound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4FC8658929E9990C00488FAE /* mySound.m4a */; };
 		4FDC130629E58887002FA49F /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDC130529E58887002FA49F /* StartScreen.swift */; };
 		4FDC130D29E59E5E002FA49F /* Coustard-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FDC130B29E59E5E002FA49F /* Coustard-Black.ttf */; };
@@ -23,6 +24,20 @@
 		4FEFF32529E642A40046BAA2 /* IntroCutscene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFF32429E642A40046BAA2 /* IntroCutscene01.swift */; };
 		855704EB29EC9EC500F7EA98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 855704EA29EC9EC500F7EA98 /* Assets.xcassets */; };
 		85D8693129E597FB0073DCF4 /* StateDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85D8692F29E597FB0073DCF4 /* StateDatabase.xcdatamodeld */; };
+		85D8693529E59ACF0073DCF4 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693429E59ACF0073DCF4 /* StorageProtocol.swift */; };
+		85D8693729E59B390073DCF4 /* GameStateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693629E59B390073DCF4 /* GameStateEntity.swift */; };
+		85D8693929E59B410073DCF4 /* RuneEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693829E59B410073DCF4 /* RuneEntity.swift */; };
+		85D8693B29E59C460073DCF4 /* CoreDataPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693A29E59C460073DCF4 /* CoreDataPersistentContainer.swift */; };
+		85D8693E29E59D590073DCF4 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693D29E59D590073DCF4 /* CoreDataStorage.swift */; };
+		85D8694029E59E670073DCF4 /* AddGameStateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8693F29E59E670073DCF4 /* AddGameStateUseCase.swift */; };
+		85D8694229E59F1E0073DCF4 /* AddRuneUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8694129E59F1E0073DCF4 /* AddRuneUseCase.swift */; };
+		85D8694429E59F3A0073DCF4 /* RemoveGameStateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8694329E59F3A0073DCF4 /* RemoveGameStateUseCase.swift */; };
+		85D8694629E59F4F0073DCF4 /* UpdateGameStateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8694529E59F4F0073DCF4 /* UpdateGameStateUseCase.swift */; };
+		85D8694A29E59F8D0073DCF4 /* UpdateRuneUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8694929E59F8D0073DCF4 /* UpdateRuneUseCase.swift */; };
+		85D8694C29E59F970073DCF4 /* RemoveRuneUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8694B29E59F970073DCF4 /* RemoveRuneUseCase.swift */; };
+		85D8694E29E5A0960073DCF4 /* StateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8694D29E5A0960073DCF4 /* StateRepository.swift */; };
+		85D8695D29E5A93E0073DCF4 /* ReadGameStateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8695C29E5A93E0073DCF4 /* ReadGameStateUseCase.swift */; };
+		85D8695F29E5A9480073DCF4 /* ReadRuneUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8695E29E5A9480073DCF4 /* ReadRuneUseCase.swift */; };
 		85F3A31A29DAFCA90097579B /* LyraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3A31929DAFCA90097579B /* LyraApp.swift */; };
 		85F3A31C29DAFCA90097579B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3A31B29DAFCA90097579B /* ContentView.swift */; };
 		85F3A31E29DAFCAB0097579B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85F3A31D29DAFCAB0097579B /* Assets.xcassets */; };
@@ -61,6 +76,7 @@
 		4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockpitViewController.swift; sourceTree = "<group>"; };
 		4FB4412829E44DF4002F6CC2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		8504BB2C29E6509F00692D15 /* CoreDataStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageTests.swift; sourceTree = "<group>"; };
 		4FC8658929E9990C00488FAE /* mySound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = mySound.m4a; sourceTree = "<group>"; };
 		4FDC130529E58887002FA49F /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
 		4FDC130A29E59D69002FA49F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -69,6 +85,20 @@
 		4FEFF32429E642A40046BAA2 /* IntroCutscene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCutscene01.swift; sourceTree = "<group>"; };
 		855704EA29EC9EC500F7EA98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Downloads/Lyra-45-criar-cena-da-selecao-de-niveis/Lyra/Assets.xcassets"; sourceTree = "<group>"; };
 		85D8693029E597FB0073DCF4 /* StateDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StateDatabase.xcdatamodel; sourceTree = "<group>"; };
+		85D8693429E59ACF0073DCF4 /* StorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
+		85D8693629E59B390073DCF4 /* GameStateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateEntity.swift; sourceTree = "<group>"; };
+		85D8693829E59B410073DCF4 /* RuneEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneEntity.swift; sourceTree = "<group>"; };
+		85D8693A29E59C460073DCF4 /* CoreDataPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistentContainer.swift; sourceTree = "<group>"; };
+		85D8693D29E59D590073DCF4 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		85D8693F29E59E670073DCF4 /* AddGameStateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameStateUseCase.swift; sourceTree = "<group>"; };
+		85D8694129E59F1E0073DCF4 /* AddRuneUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRuneUseCase.swift; sourceTree = "<group>"; };
+		85D8694329E59F3A0073DCF4 /* RemoveGameStateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveGameStateUseCase.swift; sourceTree = "<group>"; };
+		85D8694529E59F4F0073DCF4 /* UpdateGameStateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateGameStateUseCase.swift; sourceTree = "<group>"; };
+		85D8694929E59F8D0073DCF4 /* UpdateRuneUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRuneUseCase.swift; sourceTree = "<group>"; };
+		85D8694B29E59F970073DCF4 /* RemoveRuneUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveRuneUseCase.swift; sourceTree = "<group>"; };
+		85D8694D29E5A0960073DCF4 /* StateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRepository.swift; sourceTree = "<group>"; };
+		85D8695C29E5A93E0073DCF4 /* ReadGameStateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadGameStateUseCase.swift; sourceTree = "<group>"; };
+		85D8695E29E5A9480073DCF4 /* ReadRuneUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadRuneUseCase.swift; sourceTree = "<group>"; };
 		85F3A31629DAFCA90097579B /* Lyra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lyra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85F3A31929DAFCA90097579B /* LyraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyraApp.swift; sourceTree = "<group>"; };
 		85F3A31B29DAFCA90097579B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -197,6 +227,22 @@
 			path = Start;
 			sourceTree = "<group>";
 		};
+		8504BB2A29E6506900692D15 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8504BB2B29E6507500692D15 /* Storages */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8504BB2B29E6507500692D15 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				8504BB2C29E6509F00692D15 /* CoreDataStorageTests.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
 		4FDC130329E58819002FA49F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,7 +282,7 @@
 		85D8692729E588B20073DCF4 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				85D8692A29E588CA0073DCF4 /* Entities */,
+				85D8692A29E588CA0073DCF4 /* EntitiesDTO */,
 				85D8692929E588C40073DCF4 /* UseCases */,
 			);
 			path = Domain;
@@ -245,6 +291,8 @@
 		85D8692829E588BF0073DCF4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				85D8693329E59AB20073DCF4 /* Protocols */,
+				85D8693C29E59D100073DCF4 /* Containers */,
 				85D8692C29E588EA0073DCF4 /* Storages */,
 				85D8692B29E588D40073DCF4 /* Repositories */,
 			);
@@ -254,20 +302,25 @@
 		85D8692929E588C40073DCF4 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				85D8694829E59F660073DCF4 /* Rune */,
+				85D8694729E59F530073DCF4 /* GameState */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		85D8692A29E588CA0073DCF4 /* Entities */ = {
+		85D8692A29E588CA0073DCF4 /* EntitiesDTO */ = {
 			isa = PBXGroup;
 			children = (
+				85D8693629E59B390073DCF4 /* GameStateEntity.swift */,
+				85D8693829E59B410073DCF4 /* RuneEntity.swift */,
 			);
-			path = Entities;
+			path = EntitiesDTO;
 			sourceTree = "<group>";
 		};
 		85D8692B29E588D40073DCF4 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				85D8694D29E5A0960073DCF4 /* StateRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -275,6 +328,7 @@
 		85D8692C29E588EA0073DCF4 /* Storages */ = {
 			isa = PBXGroup;
 			children = (
+				85D8693D29E59D590073DCF4 /* CoreDataStorage.swift */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -295,6 +349,44 @@
 				85D8692F29E597FB0073DCF4 /* StateDatabase.xcdatamodeld */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		85D8693329E59AB20073DCF4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				85D8693429E59ACF0073DCF4 /* StorageProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		85D8693C29E59D100073DCF4 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				85D8693A29E59C460073DCF4 /* CoreDataPersistentContainer.swift */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		85D8694729E59F530073DCF4 /* GameState */ = {
+			isa = PBXGroup;
+			children = (
+				85D8693F29E59E670073DCF4 /* AddGameStateUseCase.swift */,
+				85D8694529E59F4F0073DCF4 /* UpdateGameStateUseCase.swift */,
+				85D8694329E59F3A0073DCF4 /* RemoveGameStateUseCase.swift */,
+				85D8695C29E5A93E0073DCF4 /* ReadGameStateUseCase.swift */,
+			);
+			path = GameState;
+			sourceTree = "<group>";
+		};
+		85D8694829E59F660073DCF4 /* Rune */ = {
+			isa = PBXGroup;
+			children = (
+				85D8694129E59F1E0073DCF4 /* AddRuneUseCase.swift */,
+				85D8694929E59F8D0073DCF4 /* UpdateRuneUseCase.swift */,
+				85D8694B29E59F970073DCF4 /* RemoveRuneUseCase.swift */,
+				85D8695E29E5A9480073DCF4 /* ReadRuneUseCase.swift */,
+			);
+			path = Rune;
 			sourceTree = "<group>";
 		};
 		4FDC130329E58819002FA49F /* View */ = {
@@ -378,6 +470,7 @@
 		85F3A32929DAFCAB0097579B /* LyraTests */ = {
 			isa = PBXGroup;
 			children = (
+				8504BB2A29E6506900692D15 /* Data */,
 				85F3A32A29DAFCAB0097579B /* LyraTests.swift */,
 			);
 			path = LyraTests;
@@ -551,17 +644,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85D8693B29E59C460073DCF4 /* CoreDataPersistentContainer.swift in Sources */,
+				85D8693929E59B410073DCF4 /* RuneEntity.swift in Sources */,
+				85D8694A29E59F8D0073DCF4 /* UpdateRuneUseCase.swift in Sources */,
 				85D8693129E597FB0073DCF4 /* StateDatabase.xcdatamodeld in Sources */,
 				4FB4412929E44DF4002F6CC2 /* GameScene.swift in Sources */,
+				85D8694E29E5A0960073DCF4 /* StateRepository.swift in Sources */,
+				85D8695D29E5A93E0073DCF4 /* ReadGameStateUseCase.swift in Sources */,
 				B96311C729E588890006944B /* LevelsView.swift in Sources */,
 				85F3A31C29DAFCA90097579B /* ContentView.swift in Sources */,
+				85D8694229E59F1E0073DCF4 /* AddRuneUseCase.swift in Sources */,
+				85D8694029E59E670073DCF4 /* AddGameStateUseCase.swift in Sources */,
+				85D8694C29E59F970073DCF4 /* RemoveRuneUseCase.swift in Sources */,
 				4FDC130629E58887002FA49F /* StartScreen.swift in Sources */,
 				4FEFF32529E642A40046BAA2 /* IntroCutscene01.swift in Sources */,
 				4FB4411A29E448EE002F6CC2 /* CockpitView.swift in Sources */,
 				4F15570629E5DDC800B16345 /* CutsceneView.swift in Sources */,
 				4FB4411C29E44A04002F6CC2 /* CockpitRepresentable.swift in Sources */,
+				85D8694429E59F3A0073DCF4 /* RemoveGameStateUseCase.swift in Sources */,
+				85D8693E29E59D590073DCF4 /* CoreDataStorage.swift in Sources */,
+				85D8695F29E5A9480073DCF4 /* ReadRuneUseCase.swift in Sources */,
 				4FB4412D29E45271002F6CC2 /* ViewCodeProtocol.swift in Sources */,
+				85D8694629E59F4F0073DCF4 /* UpdateGameStateUseCase.swift in Sources */,
 				4FB4411F29E44B6E002F6CC2 /* CockpitViewController.swift in Sources */,
+				85D8693729E59B390073DCF4 /* GameStateEntity.swift in Sources */,
+				85D8693529E59ACF0073DCF4 /* StorageProtocol.swift in Sources */,
 				4F3940C029E6EF9F0091368E /* IntroCutscene03.swift in Sources */,
 				4F57FACB29E9829F00091F5A /* IntroCutscene04.swift in Sources */,
 				4F3940BE29E6D98B0091368E /* IntroCutscene02.swift in Sources */,
@@ -574,6 +681,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8504BB2D29E6509F00692D15 /* CoreDataStorageTests.swift in Sources */,
 				85F3A32B29DAFCAB0097579B /* LyraTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
