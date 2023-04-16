@@ -10,9 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            //            CockpitView()
-                        StartScreen()
-            //            CutsceneView(historyText: "Vamos ver se **funciona**")
+                        LevelsView()
+            //            StartScreen()
+            ////            CutsceneView(historyText: "Vamos ver se **funciona**")
             //            IntroCutscene01()
             //            IntroCutscene02()
             //            IntroCutscene03()
@@ -24,5 +24,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
