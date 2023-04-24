@@ -16,7 +16,8 @@ struct ContentView: View {
             //            IntroCutscene01()
             //            IntroCutscene02()
             //            IntroCutscene03()
-                        IntroCutscene04()
+//                        IntroCutscene04()
+            CockpitView()
         }
     }
 }
