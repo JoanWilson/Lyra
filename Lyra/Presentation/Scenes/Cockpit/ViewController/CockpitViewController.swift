@@ -53,8 +53,12 @@ extension CockpitViewController: ViewCodeProtocol {
     }
 
     func setHierarchy() {
-        let myGesture = SowiluGestureRecognizer(target: self, action: #selector(circled))
-        subView.addGestureRecognizer(myGesture) //TIRAR DAQ
+        let sowiluGesture = SowiluGestureRecognizer(target: self, action: #selector(sowiluHandler)) //TIRAR DAQ
+        let kaunaGesture = KaunaGestureRecognizer(target: self, action: #selector(kaunaHandler))    //TIRAR DAQ
+        let uruzGesture = UruzGestureRecognizer(target: self, action: #selector(uruzHandler))   //TIRAR DAQ
+        subView.addGestureRecognizer(sowiluGesture) //TIRAR DAQ
+        subView.addGestureRecognizer(kaunaGesture) //TIRAR DAQ
+        subView.addGestureRecognizer(uruzGesture) //TIRAR DAQ
         subView.backgroundColor = .red
         self.skView.addSubview(subView)
     }
@@ -68,7 +72,17 @@ extension CockpitViewController: ViewCodeProtocol {
         ])
     }
 
-    @objc func circled(_ c: UIGestureRecognizer) {
+    @objc func sowiluHandler(_ c: UIGestureRecognizer) {
+        if c.state == .ended {
+            scene.updateAirShipState()
+        }
+    }
+    @objc func kaunaHandler(_ c: UIGestureRecognizer) {
+        if c.state == .ended {
+            scene.updateAirShipState()
+        }
+    }
+    @objc func uruzHandler(_ c: UIGestureRecognizer) {
         if c.state == .ended {
             scene.updateAirShipState()
         }

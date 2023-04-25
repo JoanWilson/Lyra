@@ -1,5 +1,5 @@
 //
-//  UruzGesture.swift
+//  KaunaGesture.swift
 //  Lyra
 //
 //  Created by Luiz Sena on 25/04/23.
@@ -9,17 +9,17 @@ import Foundation
 import UIKit
 import UIKit.UIGestureRecognizerSubclass
 
-enum CheckmarkPhasesUruz {
+enum CheckmarkPhasesKauna {
     case notStarted
     case initialPoint
-    case upStroke
-    case downStroke
+    case leftDownStroke
+    case rightDownStroke
 }
 
 
-class UruzGestureRecognizer: UIGestureRecognizer {
+class KaunaGestureRecognizer: UIGestureRecognizer {
 
-    var strokePhase : CheckmarkPhasesUruz = .notStarted
+    var strokePhase : CheckmarkPhasesKauna = .notStarted
     var initialTouchPoint : CGPoint = CGPoint.zero
     var trackedTouch : UITouch? = nil
 
@@ -57,18 +57,18 @@ class UruzGestureRecognizer: UIGestureRecognizer {
         let newPoint = (newTouch?.location(in: self.view))!
         let previousPoint = (newTouch?.previousLocation(in: self.view))!
         if self.strokePhase == .initialPoint {
-//            newPoint.x >= initialTouchPoint.x && 
-            if newPoint.y < initialTouchPoint.y {
-                self.strokePhase = .upStroke
-                print("upStroke")
+
+            if newPoint.x < initialTouchPoint.x && newPoint.y > initialTouchPoint.y {
+                self.strokePhase = .leftDownStroke
+                print("leftDown")
             } else {
                 self.state = .failed
             }
-        } else if self.strokePhase == .upStroke {
+        } else if self.strokePhase == .leftDownStroke {
             if newPoint.x > previousPoint.x {
                 if newPoint.y > previousPoint.y {
-                    self.strokePhase = .downStroke
-                    print("rightStroke")
+                    self.strokePhase = .rightDownStroke
+                    print("rightDown")
                 }
             } else {
 //                self.state = .failed
@@ -89,7 +89,7 @@ class UruzGestureRecognizer: UIGestureRecognizer {
         // If the stroke was moving up and the final point is
         // above the initial point, the gesture succeeds.
         if self.state == .possible &&
-            self.strokePhase == .downStroke &&
+            self.strokePhase == .rightDownStroke &&
             newPoint.y > initialTouchPoint.y {
             self.state = .recognized
             print("recognized")
