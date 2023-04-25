@@ -206,4 +206,3 @@ class ThunderGestureRecognizer: UIGestureRecognizer {
         self.trackedTouch = nil
     }
 }
-

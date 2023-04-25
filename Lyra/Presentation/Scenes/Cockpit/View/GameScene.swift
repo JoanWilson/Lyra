@@ -10,7 +10,7 @@ import SpriteKit
 
 class GameScene: SKScene {
 
-    let background = SKSpriteNode(imageNamed: "backgroundStorytelling")
+    let background = SKSpriteNode(imageNamed: "battleBackground")
     let cockpit = SKSpriteNode(imageNamed: "cockpit")
     let airShip = SKSpriteNode(imageNamed: "enemySpaceship")
 
@@ -21,6 +21,12 @@ class GameScene: SKScene {
         airShip.zPosition = -1
         cockpit.anchorPoint = CGPoint(x: 0, y: 0)
         cockpit.scale(
+            to: CGSize(
+                width: UIScreen.main.bounds.width,
+                height: UIScreen.main.bounds.height
+            )
+        )
+        background.scale(
             to: CGSize(
                 width: UIScreen.main.bounds.width,
                 height: UIScreen.main.bounds.height

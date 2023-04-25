@@ -10,6 +10,8 @@ import SwiftUI
 struct IntroCutscene01: View {
     @State private var idle: Bool = false
 
+    @State var showingNextView: Bool = false
+
     var body: some View {
         GeometryReader { geo in
             ZStack{
@@ -33,6 +35,15 @@ struct IntroCutscene01: View {
                     .frame(width: 173 * geo.size
                         .height/1024, height: 112 * geo.size.height/1024)
                     .position(x: geo.size.width/6, y: geo.size.height/4.2)
+            }
+            .navigationDestination(
+                isPresented: $showingNextView,
+                destination: {
+                    IntroCutscene02().navigationBarBackButtonHidden()
+
+                })
+            .onTapGesture {
+                showingNextView = true
             }
             .onAppear {
                 idle = true

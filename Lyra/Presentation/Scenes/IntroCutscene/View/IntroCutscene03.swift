@@ -10,6 +10,7 @@ import SwiftUI
 struct IntroCutscene03: View {
 
     @State var idle: Bool = false
+    @State var showingNextView: Bool = false
 
     var body: some View {
         GeometryReader { geo in
@@ -23,7 +24,7 @@ struct IntroCutscene03: View {
                             .frame(height: geo.size.height/2.28)
                         Spacer()
                     }
-                    .position(x: geo.size.width/1.3, y: geo.size.height/1.765)
+                    .position(x: geo.size.width/1.3, y: geo.size.height/1.735)
 
                 Image("basicRune")
                     .resizable()
@@ -34,10 +35,19 @@ struct IntroCutscene03: View {
                     .animation(Animation.linear(duration: 2).repeatForever(), value: idle)
 
             }
+            .onTapGesture {
+                showingNextView = true
+            }
             .onAppear {
                 idle = true
             }
         }
+        .navigationDestination(
+            isPresented: $showingNextView,
+            destination: {
+                CockpitView()
+                    .navigationBarBackButtonHidden()
+            })
     }
 }
 

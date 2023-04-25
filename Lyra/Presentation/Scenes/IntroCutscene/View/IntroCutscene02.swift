@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IntroCutscene02: View {
     @State var idle: Bool = false
+    @State var showingNextView: Bool = false
 
     var body: some View {
         GeometryReader { geo in
@@ -32,14 +33,22 @@ struct IntroCutscene02: View {
                     .position(x: geo.size.width/2.4, y: geo.size.height/2.2)
                     .scaleEffect(idle ? 1.6 : 1)
                     .offset(x: idle ? geo.size.width-500 : 0, y: 0)
-//                    .opacity(idle ? 0 : 1)
                     .animation(Animation.linear(duration: 20), value: idle)
                 
+            }
+            .onTapGesture {
+                showingNextView = true
             }
             .onAppear {
                 idle = true
             }
         }
+        .navigationDestination(
+            isPresented: $showingNextView,
+            destination: {
+                IntroCutscene03()
+                    .navigationBarBackButtonHidden()
+            })
     }
 }
 
