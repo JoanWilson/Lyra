@@ -47,7 +47,11 @@ class GameScene: SKScene {
     }
     
     func updateAirShipState() {
-        airShip.texture = SKTexture(imageNamed: "rune")
+        if airShip.texture?.description.count == SKTexture(imageNamed: "rune").description.count {
+            airShip.texture = SKTexture(imageNamed: "enemySpaceship")
+        } else {
+            airShip.texture = SKTexture(imageNamed: "rune")
+        }
     }
 
 }
