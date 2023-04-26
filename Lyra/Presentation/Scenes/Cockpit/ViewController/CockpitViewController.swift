@@ -14,7 +14,7 @@ protocol RuneGestureDelegate: AnyObject{
 
 class CockpitViewController: UIViewController {
 
-    let scene = GameScene(size: UIScreen.main.bounds.size)
+    let scene: GameScene = GameScene(size: UIScreen.main.bounds.size)
 
     lazy var skView: SKView = {
         let view = SKView()
@@ -24,7 +24,6 @@ class CockpitViewController: UIViewController {
     lazy var subView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = .blue
         view.layer.opacity = 0.3
         return view
     }()
@@ -45,6 +44,7 @@ extension CockpitViewController: ViewCodeProtocol {
     func setUI() {
         scene.scaleMode = .resizeFill
         skView.presentScene(scene)
+        scene.isPaused = true
 
         skView.ignoresSiblingOrder = false
         skView.showsPhysics = false
@@ -59,7 +59,7 @@ extension CockpitViewController: ViewCodeProtocol {
         subView.addGestureRecognizer(sowiluGesture) //TIRAR DAQ
         subView.addGestureRecognizer(kaunaGesture) //TIRAR DAQ
         subView.addGestureRecognizer(uruzGesture) //TIRAR DAQ
-        subView.backgroundColor = .red
+//        subView.backgroundColor = .red
         self.skView.addSubview(subView)
     }
 

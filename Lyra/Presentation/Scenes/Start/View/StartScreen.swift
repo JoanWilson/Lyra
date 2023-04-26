@@ -62,7 +62,7 @@ struct StartScreen: View {
                         }
                         //                        .background(.red)
                         Text("Em defesa do espaço")
-                            .font(.custom("Coustard-Regular", size: 40 * (geo.size.width/1366)))
+                            .font(.custom("NotoSans-Regular", size: 40 * (geo.size.width/1366)))
                             .foregroundColor(Color("startSubtitleColor"))
                             .offset(y: -100 * (geo.size.height/1024))
                     }
@@ -82,8 +82,8 @@ struct StartScreen: View {
                                         .frame(width: 500 * geo.size.width/1366, height: 100 * geo.size.height/1024)
                                         .foregroundColor(Color("startButtonColor"))
                                 }
-                                Text("Iniciar")
-                                    .font(.custom("Coustard-Regular", size: 48 * geo.size.height/1024))
+                                Text("Novo Jogo")
+                                    .font(.custom("NotoSans-Regular", size: 48 * geo.size.height/1024))
                                     .foregroundColor(Color("startLyraColor"))
                             }
                         }
@@ -104,7 +104,7 @@ struct StartScreen: View {
                                             .foregroundColor(Color("startButtonColor"))
                                     }
                                     Text("Continuar")
-                                        .font(.custom("Coustard-Regular", size: 48 * (geo.size.height/1024)))
+                                        .font(.custom("NotoSans-Regular", size: 48 * (geo.size.height/1024)))
                                         .foregroundColor(Color("startLyraColor"))
                                 }
                             })
