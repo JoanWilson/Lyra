@@ -9,13 +9,36 @@ import UIKit
 import SpriteKit
 import SwiftUI
 
+enum TypeRune {
+    case Sowilu
+    case Kauna
+    case Uruz
+}
+
+struct EnemyAirship {
+    let id = UUID()
+    var name: String
+    var rune: TypeRune
+    var path: UIBezierPath?
+}
+
+
 class GameScene: SKScene {
 
     let background = SKSpriteNode(imageNamed: "battleBackground")
     let cockpit = SKSpriteNode(imageNamed: "cockpit")
-    let airShip = SKSpriteNode(imageNamed: "enemySpaceship")
+//    let airShip = SKSpriteNode(imageNamed: "enemySpaceship")
     let crossHair = SKSpriteNode(imageNamed: "crossHairGreen")
-    static public var isAimLocked: Bool = false
+    lazy var  airshipEnemies: [EnemyAirship] = [
+        EnemyAirship(name: "1", rune: .Kauna, path: randomPath(UIBezierPath())),
+        EnemyAirship(name: "1", rune: .Kauna, path: randomPath(UIBezierPath())),
+        EnemyAirship(name: "2", rune: .Sowilu, path: randomPath(UIBezierPath())),
+        EnemyAirship(name: "3", rune: .Uruz, path: randomPath(UIBezierPath())),
+        EnemyAirship(name: "3", rune: .Uruz, path: randomPath(UIBezierPath())),
+    ]
+    
+    static public var isAimLocked: TypeRune? = nil
+    static public var currentNodeLocked: SKNode = SKNode()
 
 
 
@@ -23,7 +46,7 @@ class GameScene: SKScene {
         background.anchorPoint = CGPoint(x: 0, y: 0)
         background.zPosition = -2
         cockpit.zPosition = 0
-        airShip.zPosition = -1
+//        airShip.zPosition = -1
         crossHair.zPosition = -1
         cockpit.anchorPoint = CGPoint(x: 0, y: 0)
         cockpit.scale(
@@ -41,22 +64,28 @@ class GameScene: SKScene {
         physicsSetup()
         self.addChild(background)
         self.addChild(cockpit)
-        self.addChild(airShip)
+//        self.addChild(airShip)
         self.addChild(crossHair)
-        foreverActions()
+//        foreverActions()
+//        addAirShips()
     }
+    
+    
 
     override func didChangeSize(_ oldSize: CGSize) {
-        airShip.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        airShip.position = CGPoint(x: frame.midX, y: frame.midY)
-        airShip.scale(to: CGSize(width: size.width*0.2, height: size.height*0.2))
-        configureMovement()
+        super.didChangeSize(oldSize)
+//        airShip.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+//        airShip.position = CGPoint(x: frame.midX, y: frame.midY)
+//        airShip.scale(to: CGSize(width: size.width*0.2, height: size.height*0.2))
+//        configureMovement()
         //        airShip.texture = SKTexture(imageNamed: "rune")
-
+     
         crossHair.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         crossHair.position = CGPoint(x: frame.midX, y: frame.midY)
         crossHair.scale(to: CGSize(width: size.width*0.2, height: size.width*0.2))
+        crossHair.name = "crossHair"
 
+        addAirShips()
     }
 
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -66,7 +95,43 @@ class GameScene: SKScene {
 //        airShip.run(SKAction.move(to: location, duration: 1))
 //    }
     
-    func foreverActions() {
+    var noAirships = true
+    func addAirShips() {
+        guard noAirships else { return }
+        
+        for airShipEnemy in airshipEnemies {
+            var airShip = SKSpriteNode()
+            switch airShipEnemy.rune {
+            case .Kauna:
+                airShip = SKSpriteNode(imageNamed: "enemyKauna")
+            case .Sowilu:
+                airShip = SKSpriteNode(imageNamed: "enemySowilu")
+            case .Uruz:
+                airShip = SKSpriteNode(imageNamed: "enemyUruz")
+            }
+            
+            airShip.name = airShipEnemy.name
+            airShip.zPosition = -1
+            airShip.physicsBody = SKPhysicsBody(circleOfRadius: 60)
+            airShip.physicsBody?.affectedByGravity = false
+            airShip.physicsBody?.allowsRotation = false
+//            airShip.physicsBody?.isDynamic = false
+            airShip.physicsBody?.contactTestBitMask = 0b0010
+            airShip.physicsBody?.collisionBitMask = 0b0001
+            
+            self.addChild(airShip)
+            
+            airShip.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            airShip.position = CGPoint(x: frame.midX, y: frame.midY)
+            airShip.scale(to: CGSize(width: size.width*0.2, height: size.height*0.3))
+            
+            configureMovement(airShip)
+        }
+        noAirships = false
+    }
+    
+    
+    func foreverActions(_ airShip: SKSpriteNode) {
         let distance = CGFloat(150.0) // The distance to move the node to the left and right
         let duration = TimeInterval(2.0) // The duration for each movement
 
@@ -84,20 +149,16 @@ class GameScene: SKScene {
         airShip.run(repeatForever)
     }
     
-    func updateAirShipState() {
-        if airShip.texture?.description.count == SKTexture(imageNamed: "rune").description.count {
-            airShip.texture = SKTexture(imageNamed: "enemySpaceship")
-        } else {
-            airShip.texture = SKTexture(imageNamed: "rune")
-        }
+    func updateAirShipState(_ skNode: SKNode) {
+        skNode.removeFromParent()
     }
 
     func physicsSetup() {
-        airShip.physicsBody = SKPhysicsBody(circleOfRadius: 60)
-        airShip.physicsBody?.affectedByGravity = false
-        airShip.physicsBody?.allowsRotation = false
-        airShip.physicsBody?.contactTestBitMask = 0b0010
-        airShip.physicsBody?.collisionBitMask = 0b0001
+//        airShip.physicsBody = SKPhysicsBody(circleOfRadius: 60)
+//        airShip.physicsBody?.affectedByGravity = false
+//        airShip.physicsBody?.allowsRotation = false
+//        airShip.physicsBody?.contactTestBitMask = 0b0010
+//        airShip.physicsBody?.collisionBitMask = 0b0001
 
         crossHair.physicsBody = SKPhysicsBody(circleOfRadius: 40)
         crossHair.physicsBody?.categoryBitMask = 0b0010
@@ -106,7 +167,7 @@ class GameScene: SKScene {
         self.physicsWorld.contactDelegate = self
     }
 
-    func configureMovement() {
+    func configureMovement(_ airShip: SKSpriteNode) {
         let path = UIBezierPath()
         let startPoint = CGPoint(x: frame.midX, y: frame.midY)
         path.move(to: startPoint)
@@ -157,14 +218,24 @@ extension GameScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         crossHair.texture = SKTexture(imageNamed: "crossHairRed")
         crossHair.scale(to: CGSize(width: size.width*0.12, height: size.width*0.12))
-        GameScene.isAimLocked = true
-        print(GameScene.isAimLocked)
+        if contact.bodyB.node?.name == "crossHair" {
+            switch contact.bodyA.node?.name {
+            case "1":
+                GameScene.isAimLocked = .Kauna
+            case "2":
+                GameScene.isAimLocked = .Sowilu
+            case "3":
+                GameScene.isAimLocked = .Uruz
+            default:
+                GameScene.isAimLocked = nil
+            }
+            GameScene.currentNodeLocked = contact.bodyA.node ?? SKNode()
+        }
     }
 
     func didEnd(_ contact: SKPhysicsContact) {
         crossHair.texture = SKTexture(imageNamed: "crossHairGreen")
         crossHair.scale(to: CGSize(width: size.width*0.1, height: size.width*0.1))
-        GameScene.isAimLocked = false
-        print(GameScene.isAimLocked)
+        GameScene.isAimLocked = nil//        print(GameScene.isAimLocked)
     }
 }
