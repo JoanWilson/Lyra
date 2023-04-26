@@ -40,7 +40,7 @@ class GameScene: SKScene {
         )
         physicsSetup()
         self.addChild(background)
-//        self.addChild(cockpit)
+        self.addChild(cockpit)
         self.addChild(airShip)
         self.addChild(crossHair)
         foreverActions()
@@ -107,31 +107,48 @@ class GameScene: SKScene {
     }
 
     func configureMovement() {
-        lazy var path = UIBezierPath()
-        path.move(to: CGPoint(x: frame.midX, y: frame.midY))
-        path.addQuadCurve(to: CGPoint(x: frame.width/10*2,
-                                      y: frame.midY),
-                          controlPoint: CGPoint(x: frame.width/10*4,
-                                                y: frame.height/10*6)
-        )
-        path.addQuadCurve(to: CGPoint(x: frame.midX,
-                                      y: frame.midY),
-                          controlPoint: CGPoint(x: frame.width/10*4,
-                                                y: frame.height/10*4)
-        )
-        path.addQuadCurve(to: CGPoint(x: frame.width/10*8,
-                                      y: frame.midY),
-                          controlPoint: CGPoint(x: frame.width/10*6,
-                                                y: frame.height/10*6)
-        )
-        path.addQuadCurve(to: CGPoint(x: frame.midX,
-                                      y: frame.midY),
-                          controlPoint: CGPoint(x: frame.width/10*6,
-                                                y: frame.height/10*4)
-        )
-        let move = SKAction.follow(path.cgPath, asOffset: false, orientToPath: false, speed: 100)
-//        airShip.run(SKAction.repeatForever(move))
+        let path = UIBezierPath()
+        let startPoint = CGPoint(x: frame.midX, y: frame.midY)
+        path.move(to: startPoint)
+        lazy var randomPath = randomPath(path)
+        let move = SKAction.follow(randomPath.cgPath, asOffset: false, orientToPath: false, speed: 200)
         airShip.run(SKAction.repeat(move, count: 1000000))
+    }
+
+    func randomPath(_ path: UIBezierPath) -> UIBezierPath {
+        let controlPoint = CGPoint(
+            x: frame.width/10 * CGFloat.random(in: 1...9),
+            y: frame.height/10 * CGFloat.random(in: 2...7)
+        )
+        let controlPoint2 = CGPoint(
+            x: frame.width/10 * CGFloat.random(in: 1...9),
+            y: frame.height/10 * CGFloat.random(in: 2...7)
+        )
+        let controlPoint3 = CGPoint(
+            x: frame.width/10 * CGFloat.random(in: 1...9),
+            y: frame.height/10 * CGFloat.random(in: 2...7)
+        )
+        let controlPoint4 = CGPoint(
+            x: frame.width/10 * CGFloat.random(in: 1...9),
+            y: frame.height/10 * CGFloat.random(in: 2...7)
+        )
+        let centerPoint = CGPoint(
+            x: frame.midX,
+            y: frame.midY
+        )
+        let endPoint = CGPoint(
+            x: frame.width/10 * CGFloat.random(in: 1...9),
+            y: frame.height/10 * CGFloat.random(in: 1...9)
+        )
+        let endPoint2 = CGPoint(
+            x: frame.width/10 * CGFloat.random(in: 1...9),
+            y: frame.height/10 * CGFloat.random(in: 1...9)
+        )
+        path.addQuadCurve(to: endPoint, controlPoint: controlPoint)
+        path.addQuadCurve(to: centerPoint, controlPoint: controlPoint2)
+        path.addQuadCurve(to: endPoint2, controlPoint: controlPoint3)
+        path.addQuadCurve(to: centerPoint, controlPoint: controlPoint4)
+        return path
     }
 
 }
