@@ -17,9 +17,12 @@
 		4FB4412929E44DF4002F6CC2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4412829E44DF4002F6CC2 /* GameScene.swift */; };
 		4FB4412D29E45271002F6CC2 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */; };
 		4FC8658A29E9990C00488FAE /* mySound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4FC8658929E9990C00488FAE /* mySound.m4a */; };
+		4FC97E9229F8156600D1B35D /* KaunaGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC97E9129F8156600D1B35D /* KaunaGesture.swift */; };
 		4FDC130629E58887002FA49F /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDC130529E58887002FA49F /* StartScreen.swift */; };
 		4FDC130D29E59E5E002FA49F /* Coustard-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FDC130B29E59E5E002FA49F /* Coustard-Black.ttf */; };
 		4FDC130E29E59E5E002FA49F /* Coustard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FDC130C29E59E5E002FA49F /* Coustard-Regular.ttf */; };
+		4FEEE0EE29F7FC160092A6F5 /* SowiluGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEEE0ED29F7FC160092A6F5 /* SowiluGesture.swift */; };
+		4FEEE0F029F7FEB30092A6F5 /* UruzGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEEE0EF29F7FEB30092A6F5 /* UruzGesture.swift */; };
 		4FEFF32529E642A40046BAA2 /* IntroCutscene01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFF32429E642A40046BAA2 /* IntroCutscene01.swift */; };
 		8504BB2D29E6509F00692D15 /* CoreDataStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8504BB2C29E6509F00692D15 /* CoreDataStorageTests.swift */; };
 		85D8693129E597FB0073DCF4 /* StateDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85D8692F29E597FB0073DCF4 /* StateDatabase.xcdatamodeld */; };
@@ -76,10 +79,13 @@
 		4FB4412829E44DF4002F6CC2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		4FC8658929E9990C00488FAE /* mySound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = mySound.m4a; sourceTree = "<group>"; };
+		4FC97E9129F8156600D1B35D /* KaunaGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaunaGesture.swift; sourceTree = "<group>"; };
 		4FDC130529E58887002FA49F /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
 		4FDC130A29E59D69002FA49F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4FDC130B29E59E5E002FA49F /* Coustard-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Coustard-Black.ttf"; sourceTree = "<group>"; };
 		4FDC130C29E59E5E002FA49F /* Coustard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Coustard-Regular.ttf"; sourceTree = "<group>"; };
+		4FEEE0ED29F7FC160092A6F5 /* SowiluGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SowiluGesture.swift; sourceTree = "<group>"; };
+		4FEEE0EF29F7FEB30092A6F5 /* UruzGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UruzGesture.swift; sourceTree = "<group>"; };
 		4FEFF32429E642A40046BAA2 /* IntroCutscene01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCutscene01.swift; sourceTree = "<group>"; };
 		8504BB2C29E6509F00692D15 /* CoreDataStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageTests.swift; sourceTree = "<group>"; };
 		85D8693029E597FB0073DCF4 /* StateDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StateDatabase.xcdatamodel; sourceTree = "<group>"; };
@@ -199,6 +205,7 @@
 		4FB4412B29E4524F002F6CC2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4FEEE0EC29F7FC0A0092A6F5 /* Gestures */,
 				4FDC130929E59D28002FA49F /* Fonts */,
 				4FB4412C29E45271002F6CC2 /* ViewCodeProtocol.swift */,
 			);
@@ -247,6 +254,16 @@
 				4FDC130C29E59E5E002FA49F /* Coustard-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4FEEE0EC29F7FC0A0092A6F5 /* Gestures */ = {
+			isa = PBXGroup;
+			children = (
+				4FEEE0ED29F7FC160092A6F5 /* SowiluGesture.swift */,
+				4FEEE0EF29F7FEB30092A6F5 /* UruzGesture.swift */,
+				4FC97E9129F8156600D1B35D /* KaunaGesture.swift */,
+			);
+			path = Gestures;
 			sourceTree = "<group>";
 		};
 		4FEFF32329E641FC0046BAA2 /* View */ = {
@@ -607,7 +624,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F49109129F6A9610071BA0E /* IntroCutscene02.swift in Sources */,
+				4FEEE0F029F7FEB30092A6F5 /* UruzGesture.swift in Sources */,
 				4F49109229F6A9610071BA0E /* IntroCutscene03.swift in Sources */,
+				4FEEE0EE29F7FC160092A6F5 /* SowiluGesture.swift in Sources */,
 				4F49109329F6A9610071BA0E /* IntroCutscene04.swift in Sources */,
 				85D8693B29E59C460073DCF4 /* CoreDataPersistentContainer.swift in Sources */,
 				85D8693929E59B410073DCF4 /* RuneEntity.swift in Sources */,
@@ -623,6 +642,7 @@
 				85D8694C29E59F970073DCF4 /* RemoveRuneUseCase.swift in Sources */,
 				4FDC130629E58887002FA49F /* StartScreen.swift in Sources */,
 				4FEFF32529E642A40046BAA2 /* IntroCutscene01.swift in Sources */,
+				4FC97E9229F8156600D1B35D /* KaunaGesture.swift in Sources */,
 				4FB4411A29E448EE002F6CC2 /* CockpitView.swift in Sources */,
 				4F15570629E5DDC800B16345 /* CutsceneView.swift in Sources */,
 				4FB4411C29E44A04002F6CC2 /* CockpitRepresentable.swift in Sources */,
@@ -803,6 +823,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -833,6 +854,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
