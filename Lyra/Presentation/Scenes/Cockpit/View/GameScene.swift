@@ -17,6 +17,8 @@ class GameScene: SKScene {
     let crossHair = SKSpriteNode(imageNamed: "crossHairGreen")
     static public var isAimLocked: Bool = false
 
+
+
     override func didMove(to view: SKView) {
         background.anchorPoint = CGPoint(x: 0, y: 0)
         background.zPosition = -2
@@ -38,7 +40,7 @@ class GameScene: SKScene {
         )
         physicsSetup()
         self.addChild(background)
-        self.addChild(cockpit)
+//        self.addChild(cockpit)
         self.addChild(airShip)
         self.addChild(crossHair)
         foreverActions()
@@ -48,6 +50,7 @@ class GameScene: SKScene {
         airShip.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         airShip.position = CGPoint(x: frame.midX, y: frame.midY)
         airShip.scale(to: CGSize(width: size.width*0.2, height: size.height*0.2))
+        configureMovement()
         //        airShip.texture = SKTexture(imageNamed: "rune")
 
         crossHair.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -101,6 +104,34 @@ class GameScene: SKScene {
         crossHair.physicsBody?.affectedByGravity = false
         crossHair.physicsBody?.isDynamic = false
         self.physicsWorld.contactDelegate = self
+    }
+
+    func configureMovement() {
+        lazy var path = UIBezierPath()
+        path.move(to: CGPoint(x: frame.midX, y: frame.midY))
+        path.addQuadCurve(to: CGPoint(x: frame.width/10*2,
+                                      y: frame.midY),
+                          controlPoint: CGPoint(x: frame.width/10*4,
+                                                y: frame.height/10*6)
+        )
+        path.addQuadCurve(to: CGPoint(x: frame.midX,
+                                      y: frame.midY),
+                          controlPoint: CGPoint(x: frame.width/10*4,
+                                                y: frame.height/10*4)
+        )
+        path.addQuadCurve(to: CGPoint(x: frame.width/10*8,
+                                      y: frame.midY),
+                          controlPoint: CGPoint(x: frame.width/10*6,
+                                                y: frame.height/10*6)
+        )
+        path.addQuadCurve(to: CGPoint(x: frame.midX,
+                                      y: frame.midY),
+                          controlPoint: CGPoint(x: frame.width/10*6,
+                                                y: frame.height/10*4)
+        )
+        let move = SKAction.follow(path.cgPath, asOffset: false, orientToPath: false, speed: 100)
+//        airShip.run(SKAction.repeatForever(move))
+        airShip.run(SKAction.repeat(move, count: 1000000))
     }
 
 }
