@@ -17,6 +17,9 @@ struct CutsceneView: View {
     @State var aux = 0
     @State var rangeMarkdown: (startIndex: Int?, endIndex: Int?) = (nil, nil)
 
+    @State var task: (Task<(), Error>)? = nil
+    @Binding var isWriteFinished: Bool
+    
 
     var body: some View {
         GeometryReader { geo in
@@ -40,14 +43,35 @@ struct CutsceneView: View {
                                 .padding(EdgeInsets(top: 0, leading: 68, bottom: 10, trailing: 68))
                                 .colorInvert()
                         }
+                        .onTapGesture {
+                            isWriteFinished = true
+                        }
+                        .onChange(of: isWriteFinished, perform: { newValue in
+                            print(newValue)
+                            if newValue {
+                                task?.cancel()
+                                task = nil
+                                text = historyText
+                            }
+                        })
+                        .onChange(of: text) { newValue in
+                            if newValue.endIndex == historyText.endIndex {
+                                isWriteFinished = true
+                                print("is writed \(isWriteFinished)")
+                            }
+                        }
                 }
+
             }
             .scaledToFit()
         }
         .onAppear {
             typeWriter()
             idle = true
-        }.ignoresSafeArea()
+        }
+        .ignoresSafeArea()
+
+
     }
 
     func typeWriter(at position: Int = 0) {
@@ -56,7 +80,11 @@ struct CutsceneView: View {
             text = ""
         }
         if position < historyText.count {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.04) {
+
+            task = Task {
+
+                try await Task.sleep(for: .seconds(0.04))
+
                 if historyText[position] == "*" {
                     aux += 1
                     text.append("")
@@ -89,7 +117,7 @@ struct CutsceneView: View {
 
 struct CutsceneGuideView_Previews: PreviewProvider {
     static var previews: some View {
-        CutsceneView(historyText: "apenas teste")
+        CutsceneView(historyText: "apenas teste", isWriteFinished: .constant(true))
     }
 }
 

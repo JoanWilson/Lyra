@@ -11,11 +11,12 @@ struct IntroCutscene01: View {
     @State private var idle: Bool = false
 
     @State var showingNextView: Bool = false
+    @State var dialogIsFinished: Bool = false
 
     var body: some View {
         GeometryReader { geo in
             ZStack{
-                CutsceneView(historyText: "A humanidade havia se espalhado por todo o universo, colonizando planetas distantes e desenvolvendo tecnologias avançadas que lhes permitiam viajar mais rápido do que a luz.")
+                CutsceneView(historyText: "A humanidade havia se espalhado por todo o universo, colonizando planetas distantes e desenvolvendo tecnologias avançadas que lhes permitiam viajar mais rápido do que a luz.", isWriteFinished: $dialogIsFinished)
                 Image("universe1")
                     .resizable()
                     .frame(width: 989 * geo.size
@@ -35,16 +36,23 @@ struct IntroCutscene01: View {
                     .frame(width: 173 * geo.size
                         .height/1024, height: 112 * geo.size.height/1024)
                     .position(x: geo.size.width/6, y: geo.size.height/4.2)
+                Image("nextButton")
+                    .resizable()
+                    .frame(width: geo.size.width/11, height: geo.size.height/8)
+                    .position(x: geo.size.width/1.15, y: geo.size.height/1.35)
+                    .onTapGesture {
+                        if dialogIsFinished {
+                            showingNextView = true
+                        } else {
+                            dialogIsFinished = true
+                        }
+                    }
             }
             .navigationDestination(
                 isPresented: $showingNextView,
                 destination: {
                     IntroCutscene02().navigationBarBackButtonHidden()
-
                 })
-            .onTapGesture {
-                showingNextView = true
-            }
             .onAppear {
                 idle = true
             }

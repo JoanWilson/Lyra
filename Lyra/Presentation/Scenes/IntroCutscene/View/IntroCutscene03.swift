@@ -11,11 +11,12 @@ struct IntroCutscene03: View {
 
     @State var idle: Bool = false
     @State var showingNextView: Bool = false
+    @State var dialogIsFinished: Bool = false
 
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                CutsceneView(historyText: "Mas uma pequena comunidade de rebeldes, liderados por uma jovem chamada Lyra, estava determinada a derrubar a Federação e restaurar a liberdade e a justiça para todos. Eles haviam descoberto algo que poderia ajudá-los em sua luta: **a magia.**")
+                CutsceneView(historyText: "Mas uma pequena comunidade de rebeldes, liderados por uma jovem chamada Lyra, estava determinada a derrubar a Federação e restaurar a liberdade e a justiça para todos. Eles haviam descoberto algo que poderia ajudá-los em sua luta: **a magia.**", isWriteFinished: $dialogIsFinished)
                 Image("Lyra")
                     .resizable()
                     .frame(width: geo.size.width/3 * 0.95, height: geo.size.height/1.755)
@@ -33,21 +34,30 @@ struct IntroCutscene03: View {
                     .rotationEffect(idle ? Angle(degrees: 5) : Angle(degrees: -5))
                     .shadow(color: .purple, radius: 5)
                     .animation(Animation.linear(duration: 2).repeatForever(), value: idle)
+                Image("nextButton")
+                    .resizable()
+                    .frame(width: geo.size.width/11, height: geo.size.height/8)
+                    .position(x: geo.size.width/1.15, y: geo.size.height/1.35)
+                    .onTapGesture {
+                        if dialogIsFinished {
+                            showingNextView = true
+                        } else {
+                            dialogIsFinished = true
+                        }
+                    }
 
             }
-            .onTapGesture {
-                showingNextView = true
-            }
+            .navigationDestination(
+                isPresented: $showingNextView,
+                destination: {
+                    CockpitView()
+                        .navigationBarBackButtonHidden()
+                })
             .onAppear {
                 idle = true
             }
         }
-        .navigationDestination(
-            isPresented: $showingNextView,
-            destination: {
-                CockpitView()
-                    .navigationBarBackButtonHidden()
-            })
+
     }
 }
 

@@ -9,9 +9,21 @@ import SwiftUI
 import SpriteKit
 
 struct CockpitView: View {
+
+    @AppStorage("showingTutorial") var showingTutorial: Bool = true
+
     var body: some View {
-        CockpitRepresentable()
-            .ignoresSafeArea()
+        ZStack {
+            CockpitRepresentable(paused: $showingTutorial)
+            if showingTutorial {
+                TutorialRuneView()
+                    .onTapGesture {
+                        showingTutorial = false
+                    }
+            }
+            
+        }
+        .ignoresSafeArea()
     }
 }
 
