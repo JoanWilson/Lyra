@@ -74,17 +74,23 @@ extension CockpitViewController: ViewCodeProtocol {
 
     @objc func sowiluHandler(_ c: UIGestureRecognizer) {
         if c.state == .ended {
-            scene.updateAirShipState()
+            if GameScene.isAimLocked == true {
+                scene.updateAirShipState()
+            }
         }
     }
     @objc func kaunaHandler(_ c: UIGestureRecognizer) {
         if c.state == .ended {
-            scene.updateAirShipState()
+            if GameScene.isAimLocked == true {
+                scene.updateAirShipState()
+            }
         }
     }
     @objc func uruzHandler(_ c: UIGestureRecognizer) {
         if c.state == .ended {
-            scene.updateAirShipState()
+            if GameScene.isAimLocked == true {
+                scene.updateAirShipState()
+            }
         }
     }
 }

@@ -41,6 +41,7 @@ class GameScene: SKScene {
         self.addChild(cockpit)
         self.addChild(airShip)
         self.addChild(crossHair)
+        foreverActions()
     }
 
     override func didChangeSize(_ oldSize: CGSize) {
@@ -55,11 +56,29 @@ class GameScene: SKScene {
 
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        guard let touch = touches.first else { return }
-        let location = touch.location(in: self)
-        airShip.run(SKAction.move(to: location, duration: 1))
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        super.touchesBegan(touches, with: event)
+//        guard let touch = touches.first else { return }
+//        let location = touch.location(in: self)
+//        airShip.run(SKAction.move(to: location, duration: 1))
+//    }
+    
+    func foreverActions() {
+        let distance = CGFloat(150.0) // The distance to move the node to the left and right
+        let duration = TimeInterval(2.0) // The duration for each movement
+
+        // Create the actions to move the node to the right and left
+        let moveRight = SKAction.moveBy(x: distance, y: 0, duration: duration)
+        let moveLeft = SKAction.moveBy(x: -distance, y: 0, duration: duration)
+
+        // Create the sequence to move the node back and forth
+        let moveSequence = SKAction.sequence([moveLeft, moveRight])
+
+        // Repeat the sequence forever
+        let repeatForever = SKAction.repeatForever(moveSequence)
+
+        // Apply the action to the node
+        airShip.run(repeatForever)
     }
     
     func updateAirShipState() {
