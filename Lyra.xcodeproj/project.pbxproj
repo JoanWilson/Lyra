@@ -10,6 +10,8 @@
 		4F15570629E5DDC800B16345 /* CutsceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F15570529E5DDC800B16345 /* CutsceneView.swift */; };
 		4F49109129F6A9610071BA0E /* IntroCutscene02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F49108E29F6A9610071BA0E /* IntroCutscene02.swift */; };
 		4F49109229F6A9610071BA0E /* IntroCutscene03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F49108F29F6A9610071BA0E /* IntroCutscene03.swift */; };
+		4F87A14629FA03140006BADD /* EndOfLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F87A14529FA03140006BADD /* EndOfLevelView.swift */; };
+		4F87A14B29FA0A220006BADD /* SoundManagerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F87A14A29FA0A220006BADD /* SoundManagerSingleton.swift */; };
 		4FB4411A29E448EE002F6CC2 /* CockpitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4411929E448EE002F6CC2 /* CockpitView.swift */; };
 		4FB4411C29E44A04002F6CC2 /* CockpitRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4411B29E44A04002F6CC2 /* CockpitRepresentable.swift */; };
 		4FB4411F29E44B6E002F6CC2 /* CockpitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */; };
@@ -73,6 +75,8 @@
 		4F15570529E5DDC800B16345 /* CutsceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsceneView.swift; sourceTree = "<group>"; };
 		4F49108E29F6A9610071BA0E /* IntroCutscene02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCutscene02.swift; sourceTree = "<group>"; };
 		4F49108F29F6A9610071BA0E /* IntroCutscene03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCutscene03.swift; sourceTree = "<group>"; };
+		4F87A14529FA03140006BADD /* EndOfLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndOfLevelView.swift; sourceTree = "<group>"; };
+		4F87A14A29FA0A220006BADD /* SoundManagerSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManagerSingleton.swift; sourceTree = "<group>"; };
 		4FB4411929E448EE002F6CC2 /* CockpitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockpitView.swift; sourceTree = "<group>"; };
 		4FB4411B29E44A04002F6CC2 /* CockpitRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockpitRepresentable.swift; sourceTree = "<group>"; };
 		4FB4411E29E44B6E002F6CC2 /* CockpitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockpitViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +156,38 @@
 			path = IntroCutscene;
 			sourceTree = "<group>";
 		};
+		4F87A14429FA02C50006BADD /* EndOfLevel */ = {
+			isa = PBXGroup;
+			children = (
+				4F87A14729FA03220006BADD /* View */,
+			);
+			path = EndOfLevel;
+			sourceTree = "<group>";
+		};
+		4F87A14729FA03220006BADD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F87A14529FA03140006BADD /* EndOfLevelView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4F87A14829FA0A0E0006BADD /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				4F87A14929FA0A160006BADD /* SoundManeger */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
+		4F87A14929FA0A160006BADD /* SoundManeger */ = {
+			isa = PBXGroup;
+			children = (
+				4F87A14A29FA0A220006BADD /* SoundManagerSingleton.swift */,
+			);
+			path = SoundManeger;
+			sourceTree = "<group>";
+		};
 		4FB4411529E44874002F6CC2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +253,7 @@
 		4FDC130129E58611002FA49F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				4F87A14429FA02C50006BADD /* EndOfLevel */,
 				4FE52D6029F94577000EFE59 /* Tutorial */,
 				B96311C329E588560006944B /* Levels */,
 				4F15570429E5DD9D00B16345 /* IntroCutscene */,
@@ -325,6 +362,7 @@
 		85D8692829E588BF0073DCF4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				4F87A14829FA0A0E0006BADD /* Singleton */,
 				85D8693329E59AB20073DCF4 /* Protocols */,
 				85D8693C29E59D100073DCF4 /* Containers */,
 				85D8692C29E588EA0073DCF4 /* Storages */,
@@ -651,6 +689,7 @@
 				4FE52D6329F945D2000EFE59 /* TutorialRuneView.swift in Sources */,
 				85D8693929E59B410073DCF4 /* RuneEntity.swift in Sources */,
 				85D8694A29E59F8D0073DCF4 /* UpdateRuneUseCase.swift in Sources */,
+				4F87A14629FA03140006BADD /* EndOfLevelView.swift in Sources */,
 				85D8693129E597FB0073DCF4 /* StateDatabase.xcdatamodeld in Sources */,
 				4FB4412929E44DF4002F6CC2 /* GameScene.swift in Sources */,
 				85D8694E29E5A0960073DCF4 /* StateRepository.swift in Sources */,
@@ -662,6 +701,7 @@
 				85D8694C29E59F970073DCF4 /* RemoveRuneUseCase.swift in Sources */,
 				4FDC130629E58887002FA49F /* StartScreen.swift in Sources */,
 				4FEFF32529E642A40046BAA2 /* IntroCutscene01.swift in Sources */,
+				4F87A14B29FA0A220006BADD /* SoundManagerSingleton.swift in Sources */,
 				4FC97E9229F8156600D1B35D /* KaunaGesture.swift in Sources */,
 				4FB4411A29E448EE002F6CC2 /* CockpitView.swift in Sources */,
 				4F15570629E5DDC800B16345 /* CutsceneView.swift in Sources */,
@@ -835,7 +875,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lyra/Preview Content\"";
-				DEVELOPMENT_TEAM = F2MBMJ3PK6;
+				DEVELOPMENT_TEAM = PPSYB39C6H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lyra/Info.plist;
@@ -866,7 +906,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lyra/Preview Content\"";
-				DEVELOPMENT_TEAM = F2MBMJ3PK6;
+				DEVELOPMENT_TEAM = PPSYB39C6H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lyra/Info.plist;
