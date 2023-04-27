@@ -11,7 +11,9 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             StartScreen()
-//            TutorialRuneView()
+                .onAppear {
+                    SoundManager.instance.playForever(with: "mySound")
+                }
         }
 
     }
