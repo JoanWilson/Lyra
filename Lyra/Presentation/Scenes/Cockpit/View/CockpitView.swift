@@ -11,19 +11,29 @@ import SpriteKit
 struct CockpitView: View {
 
     @AppStorage("showingTutorial") var showingTutorial: Bool = true
+    @State var showingLevelView: Bool = false
 
     var body: some View {
         ZStack {
-            CockpitRepresentable(paused: $showingTutorial)
+            CockpitRepresentable(paused: $showingTutorial, showingLevelView: $showingLevelView, moveToLevelViewDelegate: self)
             if showingTutorial {
                 TutorialRuneView()
                     .onTapGesture {
                         showingTutorial = false
                     }
             }
-            
         }
         .ignoresSafeArea()
+        .navigationDestination(isPresented: $showingLevelView) {
+            EndOfLevel()
+                .navigationBarBackButtonHidden()
+        }
+    }
+}
+
+extension CockpitView: MoveToLevelView {
+    func moveToLevelView() {
+        self.showingLevelView = true
     }
 }
 

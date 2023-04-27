@@ -31,10 +31,6 @@ class GameScene: SKScene {
     let crossHair = SKSpriteNode(imageNamed: "crossHairGreen")
     lazy var  airshipEnemies: [EnemyAirship] = [
         EnemyAirship(name: "1", rune: .Kauna, path: randomPath(UIBezierPath())),
-        EnemyAirship(name: "1", rune: .Kauna, path: randomPath(UIBezierPath())),
-        EnemyAirship(name: "2", rune: .Sowilu, path: randomPath(UIBezierPath())),
-        EnemyAirship(name: "3", rune: .Uruz, path: randomPath(UIBezierPath())),
-        EnemyAirship(name: "3", rune: .Uruz, path: randomPath(UIBezierPath())),
     ]
     
     static public var isAimLocked: TypeRune? = nil
@@ -151,6 +147,8 @@ class GameScene: SKScene {
     
     func updateAirShipState(_ skNode: SKNode) {
         skNode.removeFromParent()
+        crossHair.texture = SKTexture(imageNamed: "crossHairGreen")
+        crossHair.scale(to: CGSize(width: size.width*0.1, height: size.width*0.1))
     }
 
     func physicsSetup() {
@@ -205,6 +203,7 @@ class GameScene: SKScene {
             x: frame.width/10 * CGFloat.random(in: 1...9),
             y: frame.height/10 * CGFloat.random(in: 1...9)
         )
+        
         path.addQuadCurve(to: endPoint, controlPoint: controlPoint)
         path.addQuadCurve(to: centerPoint, controlPoint: controlPoint2)
         path.addQuadCurve(to: endPoint2, controlPoint: controlPoint3)
@@ -236,6 +235,6 @@ extension GameScene: SKPhysicsContactDelegate {
     func didEnd(_ contact: SKPhysicsContact) {
         crossHair.texture = SKTexture(imageNamed: "crossHairGreen")
         crossHair.scale(to: CGSize(width: size.width*0.1, height: size.width*0.1))
-        GameScene.isAimLocked = nil//        print(GameScene.isAimLocked)
+        GameScene.isAimLocked = nil
     }
 }

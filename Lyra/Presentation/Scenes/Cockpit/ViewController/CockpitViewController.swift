@@ -4,21 +4,40 @@
 //
 //  Created by Luiz Sena on 10/04/23.
 //
-
+ 
 import UIKit
 import SpriteKit
 
-protocol RuneGestureDelegate: AnyObject{
-    func updateAirShipState()
+protocol MoveToLevelView {
+    func moveToLevelView()
 }
 
 class CockpitViewController: UIViewController {
+    
+    var moveToLevelViewDelegate: MoveToLevelView!
 
     let scene: GameScene = GameScene(size: UIScreen.main.bounds.size)
-
+    var showingLevelView: Bool = false
+    var numberOfAirShipsToDestroy: Int = 5 {
+        didSet {
+            if self.numberOfAirShipsToDestroy == 0 {
+                moveToLevelViewDelegate.moveToLevelView()
+            }
+            numberOfAirShip.text = "X \(self.numberOfAirShipsToDestroy)"
+        }
+    }
+    
     lazy var skView: SKView = {
         let view = SKView()
         return view
+    }()
+    
+    lazy var smallAirShipLabel: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "enemySpaceship")
+        
+        return imageView
     }()
 
     lazy var subView: UIView = {
@@ -27,7 +46,16 @@ class CockpitViewController: UIViewController {
         view.layer.opacity = 0.3
         return view
     }()
-
+    
+    lazy var numberOfAirShip: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "X \(scene.children.count - 3)"
+        label.font = .systemFont(ofSize: 30, weight: .bold)
+    
+        return label
+    }()
+  
     override func loadView() {
         self.view = skView
     }
@@ -61,6 +89,8 @@ extension CockpitViewController: ViewCodeProtocol {
         subView.addGestureRecognizer(uruzGesture) //TIRAR DAQ
 //        subView.backgroundColor = .red
         self.skView.addSubview(subView)
+        self.skView.addSubview(numberOfAirShip)
+        self.skView.addSubview(smallAirShipLabel)
     }
 
     func setConstraints() {
@@ -68,7 +98,17 @@ extension CockpitViewController: ViewCodeProtocol {
             subView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height*0.7),
             subView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width*0.3),
             subView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            subView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            subView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            
+            
+            
+            smallAirShipLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            smallAirShipLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            smallAirShipLabel.heightAnchor.constraint(equalToConstant: 70),
+            smallAirShipLabel.widthAnchor.constraint(equalToConstant: 100),
+            
+            numberOfAirShip.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            numberOfAirShip.leadingAnchor.constraint(equalTo: smallAirShipLabel.trailingAnchor),
         ])
     }
 
@@ -76,6 +116,7 @@ extension CockpitViewController: ViewCodeProtocol {
         if c.state == .recognized {
             if GameScene.isAimLocked == .Sowilu {
                 scene.updateAirShipState(GameScene.currentNodeLocked)
+                fetchNumberOfCurrentShips()
             }
         }
     }
@@ -83,6 +124,7 @@ extension CockpitViewController: ViewCodeProtocol {
         if c.state == .recognized {
             if GameScene.isAimLocked == .Kauna {
                 scene.updateAirShipState(GameScene.currentNodeLocked)
+                fetchNumberOfCurrentShips()
             }
         }
     }
@@ -90,7 +132,12 @@ extension CockpitViewController: ViewCodeProtocol {
         if c.state == .recognized {
             if GameScene.isAimLocked == .Uruz {
                 scene.updateAirShipState(GameScene.currentNodeLocked)
+                fetchNumberOfCurrentShips()
             }
         }
+    }
+    
+    func fetchNumberOfCurrentShips() {
+        self.numberOfAirShipsToDestroy = scene.children.count - 3
     }
 }

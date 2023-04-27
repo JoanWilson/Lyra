@@ -29,8 +29,9 @@ struct EndOfLevel: View {
                     }
                     VStack{
                         Spacer()
-                        Button {
-                            //
+                        NavigationLink {
+                            LevelsView()
+                                .navigationBarBackButtonHidden()
                         } label: {
                             RoundedRectangle(cornerRadius: 15)
                                 .frame(width: geo.size.width/5, height: geo.size.height/9)
