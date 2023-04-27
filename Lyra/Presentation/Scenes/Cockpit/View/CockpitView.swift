@@ -25,7 +25,7 @@ struct CockpitView: View {
         }
         .ignoresSafeArea()
         .navigationDestination(isPresented: $showingLevelView) {
-            LevelsView()
+            EndOfLevel()
                 .navigationBarBackButtonHidden()
         }
     }
