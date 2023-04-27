@@ -46,6 +46,10 @@ class SoundManager {
 
     }
 
+    func stop() {
+        player?.stop()
+    }
+
     private init(player: AVAudioPlayer? = nil) {
         self.player = player
     }

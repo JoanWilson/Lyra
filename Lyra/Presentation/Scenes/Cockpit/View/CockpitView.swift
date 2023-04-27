@@ -23,6 +23,9 @@ struct CockpitView: View {
                     }
             }
         }
+        .onAppear {
+            SoundManager.instance.stop()
+        }
         .ignoresSafeArea()
         .navigationDestination(isPresented: $showingLevelView) {
             EndOfLevel()

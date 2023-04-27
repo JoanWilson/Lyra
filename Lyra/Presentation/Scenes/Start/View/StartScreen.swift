@@ -88,26 +88,26 @@ struct StartScreen: View {
                             }
                         }
 
-                        Button(
-                            action: {
-                                print("touch")
-                            },
-                            label: {
-                                ZStack {
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .frame(width: 500 * geo.size.width/1366, height: 100 * geo.size.height/1024)
-                                            .foregroundColor(Color("startButtonShadow"))
-                                            .offset(x: -3, y: 3)
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .frame(width: 500 * geo.size.width/1366, height: 100 * geo.size.height/1024)
-                                            .foregroundColor(Color("startButtonColor"))
-                                    }
-                                    Text("Continuar")
-                                        .font(.custom("NotoSans-Regular", size: 48 * (geo.size.height/1024)))
-                                        .foregroundColor(Color("startLyraColor"))
-                                }
-                            })
+//                        Button(
+//                            action: {
+//                                print("touch")
+//                            },
+//                            label: {
+//                                ZStack {
+//                                    ZStack{
+//                                        RoundedRectangle(cornerRadius: 16)
+//                                            .frame(width: 500 * geo.size.width/1366, height: 100 * geo.size.height/1024)
+//                                            .foregroundColor(Color("startButtonShadow"))
+//                                            .offset(x: -3, y: 3)
+//                                        RoundedRectangle(cornerRadius: 16)
+//                                            .frame(width: 500 * geo.size.width/1366, height: 100 * geo.size.height/1024)
+//                                            .foregroundColor(Color("startButtonColor"))
+//                                    }
+//                                    Text("Continuar")
+//                                        .font(.custom("NotoSans-Regular", size: 48 * (geo.size.height/1024)))
+//                                        .foregroundColor(Color("startLyraColor"))
+//                                }
+//                            })
                     }
                     .offset(y: -25)
                 }

@@ -14,6 +14,7 @@ struct ContentView: View {
                 .onAppear {
                     SoundManager.instance.playForever(with: "mySound")
                 }
+                .preferredColorScheme(.dark)
         }
 
     }
