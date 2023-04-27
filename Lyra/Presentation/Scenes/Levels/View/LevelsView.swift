@@ -37,7 +37,7 @@ struct LevelsView: View {
                             HStack {
                                 ForEach(0..<viewModel.images.count, id:\.self) { level in
                                     VStack {
-                                        NavigationLink(destination: IntroCutscene01().navigationBarBackButtonHidden()) {
+                                        NavigationLink(destination: StartScreen().navigationBarBackButtonHidden()) {
                                             Image(viewModel.images[level])
                                                 .shadow(
                                                     color: Color("historyBarColor"),
