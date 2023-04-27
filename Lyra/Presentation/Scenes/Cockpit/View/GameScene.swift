@@ -31,6 +31,10 @@ class GameScene: SKScene {
     let crossHair = SKSpriteNode(imageNamed: "crossHairGreen")
     lazy var  airshipEnemies: [EnemyAirship] = [
         EnemyAirship(name: "1", rune: .Kauna, path: randomPath(UIBezierPath())),
+        EnemyAirship(name: "1", rune: .Kauna, path: randomPath(UIBezierPath())),
+        EnemyAirship(name: "2", rune: .Sowilu, path: randomPath(UIBezierPath())),
+        EnemyAirship(name: "3", rune: .Uruz, path: randomPath(UIBezierPath())),
+        EnemyAirship(name: "3", rune: .Uruz, path: randomPath(UIBezierPath())),
     ]
     
     static public var isAimLocked: TypeRune? = nil
