@@ -38,8 +38,6 @@ class GameScene: SKScene {
     static public var isAimLocked: TypeRune? = nil
     static public var currentNodeLocked: SKNode = SKNode()
 
-
-
     override func didMove(to view: SKView) {
         background.anchorPoint = CGPoint(x: 0, y: 0)
         background.zPosition = -2
@@ -172,7 +170,7 @@ class GameScene: SKScene {
         let startPoint = CGPoint(x: frame.midX, y: frame.midY)
         path.move(to: startPoint)
         lazy var randomPath = randomPath(path)
-        let move = SKAction.follow(randomPath.cgPath, asOffset: false, orientToPath: false, speed: 200)
+        let move = SKAction.follow(randomPath.cgPath, asOffset: false, orientToPath: false, duration: 10.0)
         airShip.run(SKAction.repeat(move, count: 1000000))
     }
 
